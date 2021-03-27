@@ -7,7 +7,7 @@ export const WeekContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 10%;
-  margin: 1%;
+  margin: 0.5%;
 `;
 
 export const DayOfWeek = styled.text`
@@ -16,5 +16,5 @@ export const DayOfWeek = styled.text`
   align-items: center;
   self-align: center;
   color: ${({ theme }) => theme.colors.primatyText};
-  margin-bottom: 20px;
+  margin-bottom: 2%;
 `;

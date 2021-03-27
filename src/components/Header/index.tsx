@@ -1,25 +1,32 @@
-import React, { useContext } from "react";
-import { Container, Month } from "./styles";
-import Switch from "react-switch";
-import { useDispatch } from "react-redux";
+import React from "react";
+import {
+  Container,
+  Month,
+  ThemeSwitch,
+  PreviousMonth,
+  NextMonth,
+  Moon,
+  Sun,
+} from "./styles";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../redux/actions";
 import { format } from "date-fns";
-import { ThemeContext } from "styled-components";
-import { shade } from "polished";
 
 const Header: React.FC = () => {
-  const theme = useContext(ThemeContext);
+  const theme = useSelector((state: any) => state.theme);
   const dispatch = useDispatch();
   return (
     <Container>
-      <Month>{format(new Date(), "MMMM")}</Month>
-      <Switch
+      <Month>
+        <PreviousMonth />
+        {format(new Date(), "MMMM")}
+        <NextMonth />
+      </Month>
+      <ThemeSwitch
         onChange={() => dispatch(toggleTheme())}
-        checked={theme.title === "dark"}
-        checkedIcon={false}
-        uncheckedIcon={false}
-        offColor={shade(0.1, theme.colors.primary)}
-        onColor={shade(0.1, theme.colors.primary)}
+        checked={theme === "dark"}
+        checkedIcon={<Moon />}
+        uncheckedIcon={<Sun />}
       />
     </Container>
   );

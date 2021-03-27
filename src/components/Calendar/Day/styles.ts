@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { shade } from "polished";
+import { shade, lighten } from "polished";
 
 interface ContainerProps {
   current: boolean;
@@ -10,24 +10,34 @@ interface DayOfMonthProps {
 
 export const Container = styled.div<ContainerProps>`
   height: 100%;
-  width: 100%;
+  width: 100vw;
   align-items: stretch;
   padding: 1%;
-  margin: 1%;
+  margin: 0.5%;
   background: ${({ theme, current }) =>
-    current ? theme.colors.background : shade(0.3, theme.colors.primary)};
-  border-radius: 10px;
-  border: 2px solid
-    ${({ theme, current }) =>
-      current ? shade(0.2, theme.colors.background) : shade(0.3, theme.colors.primary)};
+    theme.title === "light"
+      ? current
+        ? shade(0.03, theme.colors.background)
+        : shade(0.15, theme.colors.background)
+      : current
+      ? lighten(0.03, theme.colors.background)
+      : shade(0.6, theme.colors.background)};
+  border-radius: 5px;
+  
   &:hover {
     background: ${({ theme, current }) =>
-    current ? shade(0.2, theme.colors.background) : shade(0.3, theme.colors.primary)};
+      current
+        ? shade(0.2, theme.colors.background)
+        : shade(0.3, theme.colors.primary)};
 `;
 
 export const DayOfMonth = styled.text<DayOfMonthProps>`
   font-size: 14px;
   font-weight: bold;
   color: ${({ theme, current }) =>
-    current ? theme.colors.primatyText : theme.colors.secondaryText};
+    theme.title === "light"
+      ? current
+        ? theme.colors.primatyText
+        : theme.colors.secondaryText
+      : theme.colors.lightText};
 `;

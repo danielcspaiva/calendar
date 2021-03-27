@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { shade } from "polished";
+import { GrFormAdd } from "react-icons/gr";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   max-width: 1200px;
   height: 86%;
   padding: 2%;
@@ -14,12 +15,23 @@ export const Container = styled.div`
 
 export const AddEventButton = styled.div`
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   bottom: 10%;
-  right: 5%;
-  height: 75px;
-  width: 75px;
-  border-radius: 75px;
+  right: 5vw;
+  height: 7vh;
+  width: 7vh;
+  border-radius: 7vh;
+
   background: ${({ theme }) => theme.colors.accent};
   &:hover {
     background: ${({ theme }) => shade(0.1, theme.colors.accent)};
+  }
+`;
+
+export const AddIcon = styled(GrFormAdd).attrs(() => ({
+  size: "4vh",
+}))`
+  color: ${({ theme }) => theme.colors.lightText};
 `;
