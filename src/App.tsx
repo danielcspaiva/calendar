@@ -1,12 +1,15 @@
 import React from "react";
-import { ThemeProvider } from 'styled-components';
-import dark from './styles/themes/dark'
+import { ThemeProvider } from "styled-components";
+import dark from "./styles/themes/dark";
+import light from "./styles/themes/light";
 import GlobalStyle from "./styles/global";
 import Header from "./components/Header";
+import { useSelector } from "react-redux";
 
 const App: React.FC = () => {
+  const { theme } = useSelector((state: any) => state);
   return (
-    <ThemeProvider theme={dark}>
+    <ThemeProvider theme={theme === "dark" ? dark : light}>
       <div className="App">
         <GlobalStyle />
         <Header />

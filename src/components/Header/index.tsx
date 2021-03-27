@@ -1,16 +1,18 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Container } from "./styles";
 import Switch from "react-switch";
-import { ThemeContext } from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleTheme } from "../../redux/actions";
 
 const Header: React.FC = () => {
-  const { colors } = useContext(ThemeContext);
+  const theme = useSelector((state: any) => state.theme);
+  const dispatch = useDispatch();
   return (
     <Container>
-      Hello World
+      MyCalendar
       <Switch
-        onChange={() => {}}
-        checked={true}
+        onChange={() => dispatch(toggleTheme())}
+        checked={theme === 'dark'}
         checkedIcon={false}
         uncheckedIcon={false}
       />
