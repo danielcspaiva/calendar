@@ -12,11 +12,12 @@ export default createGlobalStyle`
     font-size: 14px;
     color: ${({ theme }) => theme.colors.lightText};
     font-family: 'Open Sans', sans-serif;
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
+    min-height: 100%;
+    height: -webkit-fill-available;
   }
 
   html {
+    min-height: 100%;
     height: -webkit-fill-available;
   }
 `;

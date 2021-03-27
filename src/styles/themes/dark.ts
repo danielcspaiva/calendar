@@ -7,7 +7,8 @@ const dark = {
     background: "#121212",
     lightText: "#FFFFFF",
     darkText: "#121212",
-    defaultText: "#FFFFFF"
+    primatyText: "#FFFFFF",
+    secondaryText: "#121212",
   },
 };
 

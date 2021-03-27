@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FiGithub size={20} color={theme.colors.defaultText} />
+        <FiGithub size={20} color={theme.colors.lightText} />
       </a>
       {"  "}
       <a
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <FiLinkedin size={20} color={theme.colors.defaultText} />
+        <FiLinkedin size={20} color={theme.colors.lightText} />
       </a>
     </Container>
   );
