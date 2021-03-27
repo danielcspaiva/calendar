@@ -12,8 +12,8 @@ export const Container = styled.div<ContainerProps>`
   height: 100%;
   width: 100%;
   align-items: stretch;
-  padding: 15px;
-  margin: 5px;
+  padding: 1%;
+  margin: 1%;
   background: ${({ theme, current }) =>
     current ? theme.colors.background : shade(0.3, theme.colors.primary)};
   border-radius: 10px;

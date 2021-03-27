@@ -8,7 +8,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 30px;
+  padding: 0 2%;
 `;
 
 export const Month = styled.text`

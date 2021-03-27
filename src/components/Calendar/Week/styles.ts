@@ -7,5 +7,5 @@ export const WeekContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  margin: 5px;
+  margin: 1%;
 `;
