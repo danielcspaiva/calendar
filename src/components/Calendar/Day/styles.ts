@@ -29,5 +29,5 @@ export const DayOfMonth = styled.text<DayOfMonthProps>`
   font-size: 14px;
   font-weight: bold;
   color: ${({ theme, current }) =>
-    current ? theme.colors.primary : theme.colors.background};
+    current ? theme.colors.defaultText : theme.colors.background};
 `;

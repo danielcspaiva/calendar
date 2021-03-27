@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "./styles";
+import { Container, AddEventButton } from "./styles";
 import { useSelector, useDispatch } from "react-redux";
 import { setEvent, editEvent, deleteEvent } from "../../redux/actions";
 import { startOfMonth, startOfWeek, addDays } from "date-fns";
@@ -25,10 +25,15 @@ const Calendar: React.FC = () => {
     generateArray();
   }, []);
 
+  const handleCreateEvent = () => {
+    console.log("HANDLE CREATE NEW EVENT");
+  };
+
   return (
     <Container>
       <WeekDays weekArray={calendar[0]} />
       {!!calendar && calendar.map((week: Date[]) => <Week weekArray={week} />)}
+      <AddEventButton onClick={() => handleCreateEvent()} />
     </Container>
   );
 };
