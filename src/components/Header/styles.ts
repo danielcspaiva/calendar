@@ -32,13 +32,13 @@ export const ThemeSwitch = styled(Switch).attrs(({ theme }) => ({
 }))``;
 
 export const PreviousMonth = styled(BsFillCaretLeftFill).attrs(() => ({
-  size: "2vh",
+  size: "20px",
 }))`
   color: ${({ theme }) => theme.colors.lightText};
 `;
 
 export const NextMonth = styled(BsFillCaretRightFill).attrs(() => ({
-  size: "2vh",
+  size: "20px",
 }))`
   color: ${({ theme }) => theme.colors.lightText};
 `;

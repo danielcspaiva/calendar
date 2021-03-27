@@ -31,7 +31,7 @@ export const AddEventButton = styled.div`
 `;
 
 export const AddIcon = styled(GrFormAdd).attrs(() => ({
-  size: "4vh",
+  size: "40px",
 }))`
   color: ${({ theme }) => theme.colors.lightText};
 `;

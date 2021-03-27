@@ -14,7 +14,7 @@ export const Container = styled.footer`
   }
 `;
 
-export const FooterText = styled.text`
+export const FooterText = styled.p`
   font-size: 1.5vh;
   font-weight: bold;
 `;

@@ -10,7 +10,7 @@ interface WeekProps {
 const Week: React.FC<WeekProps> = ({ weekArray }: WeekProps) => {
   return (
     <WeekContainer>
-      {weekArray && weekArray.map((day) => <Day day={day} />)}
+      {weekArray && weekArray.map((day, idx) => <Day key={idx} day={day} />)}
     </WeekContainer>
   );
 };

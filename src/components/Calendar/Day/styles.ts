@@ -31,7 +31,7 @@ export const Container = styled.div<ContainerProps>`
         : shade(0.3, theme.colors.primary)};
 `;
 
-export const DayOfMonth = styled.text<DayOfMonthProps>`
+export const DayOfMonth = styled.p<DayOfMonthProps>`
   font-size: 14px;
   font-weight: bold;
   color: ${({ theme, current }) =>

@@ -12,6 +12,11 @@ declare module "styled-components" {
       darkText: string;
       primatyText: string;
       secondaryText: string;
+      cyan: string;
+      salmon: string;
+      pink: string;
+      green: string;
+      yellow: string;
     };
   }
 }

@@ -10,7 +10,7 @@ export const WeekContainer = styled.div`
   margin: 0.5%;
 `;
 
-export const DayOfWeek = styled.text`
+export const DayOfWeek = styled.p`
   font-size: 20px;
   font-weight: bold;
   align-items: center;

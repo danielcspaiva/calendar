@@ -11,7 +11,7 @@ export default createGlobalStyle`
     background: ${({ theme }) => theme.colors.background};
     font-size: 14px;
     color: ${({ theme }) => theme.colors.lightText};
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     min-height: 100%;
     height: -webkit-fill-available;
   }

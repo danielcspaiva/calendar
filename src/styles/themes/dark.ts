@@ -9,6 +9,11 @@ const dark = {
     darkText: "#121212",
     primatyText: "#FFFFFF",
     secondaryText: "#121212",
+    cyan: "#a1fff7",
+    salmon: "#ff9ea5",
+    pink: "#fc99ff",
+    green: "#96fab4",
+    yellow: "#fff29e",
   },
 };
 

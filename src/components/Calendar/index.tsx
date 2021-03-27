@@ -6,9 +6,11 @@ import { startOfMonth, startOfWeek, addDays } from "date-fns";
 
 import Week from "./Week";
 import WeekDays from "./WeekDays";
+import CreateEvent from "../CreateEvent";
 
 const Calendar: React.FC = () => {
   const [calendar, setCalendar] = useState([[new Date()]]);
+  const [showCreateEvent, setShowCreateEvent] = useState(false);
 
   const generateArray = (startDay = new Date()) => {
     const calendarStart = startOfWeek(startOfMonth(startDay));
@@ -25,17 +27,17 @@ const Calendar: React.FC = () => {
     generateArray();
   }, []);
 
-  const handleCreateEvent = () => {
-    console.log("HANDLE CREATE NEW EVENT");
-  };
-
   return (
     <Container>
       <WeekDays weekArray={calendar[0]} />
-      {!!calendar && calendar.map((week: Date[]) => <Week weekArray={week} />)}
-      <AddEventButton onClick={() => handleCreateEvent()}>
+      {!!calendar &&
+        calendar.map((week: Date[], idx: number) => (
+          <Week key={idx} weekArray={week} />
+        ))}
+      <AddEventButton onClick={() => setShowCreateEvent(!showCreateEvent)}>
         <AddIcon />
       </AddEventButton>
+      {showCreateEvent && <CreateEvent />}
     </Container>
   );
 };
