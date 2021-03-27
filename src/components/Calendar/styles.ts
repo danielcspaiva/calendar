@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 800px;
-  padding: 20px;
-  border: 1px solid ${({ theme }) => theme.colors.primary};
+  max-width: 1200px;
+  height: 86%;
+  padding: 30px;
 `;

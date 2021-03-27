@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setEvent, editEvent, deleteEvent } from "../../redux/actions";
 import { startOfMonth, startOfWeek, addDays } from "date-fns";
 
-import Week from "../Week";
+import Week from "./Week";
+import WeekDays from "./WeekDays";
 
 const Calendar: React.FC = () => {
   const [calendar, setCalendar] = useState([[new Date()]]);
@@ -26,7 +27,8 @@ const Calendar: React.FC = () => {
 
   return (
     <Container>
-      {!!calendar && calendar.map((week: any) => <Week weekArray={week} />)}
+      <WeekDays weekArray={calendar[0]} />
+      {!!calendar && calendar.map((week: Date[]) => <Week weekArray={week} />)}
     </Container>
   );
 };

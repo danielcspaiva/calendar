@@ -10,7 +10,7 @@ export default createGlobalStyle`
   body {
     background: ${({ theme }) => theme.colors.background};
     font-size: 14px;
-    color: ${({ theme }) => theme.colors.text};
-    font-family: sans-serif;
+    color: ${({ theme }) => theme.colors.lightText};
+    font-family: 'Open Sans', sans-serif;
   }
 `;

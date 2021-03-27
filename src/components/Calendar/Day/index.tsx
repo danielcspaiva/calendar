@@ -10,9 +10,14 @@ interface DayProps {
 const Days: React.FC<DayProps> = ({ day }: DayProps) => {
   const currentMonth = useMemo(() => format(new Date(), "M"), []);
   const monthOfDay = format(day, "M");
+  const current = currentMonth === monthOfDay;
+
+  const openModal = () => {
+    console.log("OPEN MODAL", day);
+  };
   return (
-    <Container current={currentMonth === monthOfDay}>
-      <DayOfMonth>{format(day, "d")}</DayOfMonth>
+    <Container current={current} onClick={() => openModal()}>
+      <DayOfMonth current={current}>{format(day, "d")}</DayOfMonth>
     </Container>
   );
 };

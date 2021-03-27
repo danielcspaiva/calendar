@@ -7,11 +7,10 @@ export const Container = styled.div`
   color: ${({ theme }) => theme.colors.lightText};
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 30px;
+  justify-content: center;
 `;
 
-export const Month = styled.text`
+export const FooterText = styled.text`
   font-size: 30px;
   font-weight: bold;
 `;

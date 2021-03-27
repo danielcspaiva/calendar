@@ -3,19 +3,15 @@ import { ThemeProvider } from "styled-components";
 import dark from "./styles/themes/dark";
 import light from "./styles/themes/light";
 import GlobalStyle from "./styles/global";
-import Header from "./components/Header";
-import Calendar from "./components/Calendar";
 import { useSelector } from "react-redux";
+import Home from "./Home";
 
 const App: React.FC = () => {
   const { theme } = useSelector((state: any) => state);
   return (
     <ThemeProvider theme={theme === "dark" ? dark : light}>
-      <div className="App">
-        <GlobalStyle />
-        <Header />
-        <Calendar />
-      </div>
+      <GlobalStyle />
+      <Home />
     </ThemeProvider>
   );
 };
