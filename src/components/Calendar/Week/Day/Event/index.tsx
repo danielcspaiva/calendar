@@ -34,12 +34,8 @@ const Event: React.FC<Event> = ({ event, detail }: Event) => {
   const [forecast, setForecast] = useState<ForecastProps | undefined>(
     undefined
   );
-  const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${process.env.REACT_APP_OPENWEATHERAPP}`;
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${process.env.REACT_APP_OPENWEATHERAPP}`;
 
-  console.log(
-    "process.env.REACT_APP_OPENWEATHERAPP",
-    process.env.REACT_APP_OPENWEATHERAPP
-  );
   useEffect(() => {
     getWeatherData();
   }, []);
