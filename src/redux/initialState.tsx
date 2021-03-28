@@ -103,6 +103,8 @@ const state = {
     ],
   },
   showCreateEvent: false,
+  showEventDetail: false,
+  eventInDetail: {},
 };
 
 export default state;

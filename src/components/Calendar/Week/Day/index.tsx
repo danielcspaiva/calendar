@@ -1,9 +1,11 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
+import { ApplicationState } from "../../../../redux/types";
+import { EventProps } from "../../../../types";
 
 import { Container, DayOfMonth } from "./styles";
 import { format } from "date-fns";
-import Event from "../Event";
+import Event from "./Event";
 interface DayProps {
   day: Date;
 }
@@ -14,7 +16,7 @@ const Days: React.FC<DayProps> = ({ day }: DayProps) => {
   const current = currentMonth === monthOfDay;
   const events = useSelector(
     (state: any) => state.events[format(day, "y-MM-dd")]
-  )?.sort((a: any, b: any) => a.time.localeCompare(b.time));
+  )?.sort((a: EventProps, b: EventProps) => a.time.localeCompare(b.time));
 
   const isToday = format(day, "y-MM-dd") === format(new Date(), "y-MM-dd");
 
@@ -22,7 +24,7 @@ const Days: React.FC<DayProps> = ({ day }: DayProps) => {
     <Container current={current} isToday={isToday}>
       <DayOfMonth current={current}>{format(day, "d")}</DayOfMonth>
       {events &&
-        events.map((event: any, idx: number) => (
+        events.map((event: EventProps, idx: number) => (
           <Event key={idx} event={event} />
         ))}
     </Container>

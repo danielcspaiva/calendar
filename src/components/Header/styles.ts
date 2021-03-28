@@ -12,7 +12,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5%;
+  padding: 0 5vw;
 `;
 
 export const Month = styled.div`

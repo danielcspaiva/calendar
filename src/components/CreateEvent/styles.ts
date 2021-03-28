@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { shade } from "polished";
+import { VscClose } from "react-icons/vsc";
 
 export const Container = styled.div`
   height: 500px;
@@ -20,7 +21,7 @@ export const Container = styled.div`
 interface ColorProps {
   color: "cyan" | "salmon" | "pink" | "green" | "yellow";
   selected: boolean;
-  onClick: any;
+  onClick: () => void;
 }
 
 export const Color = styled.div<ColorProps>`
@@ -90,4 +91,13 @@ export const DateContainer = styled.div`
   > * {
     width: 48%;
   }
+`;
+
+export const Close = styled(VscClose).attrs(({ theme }) => ({
+  size: "35px",
+}))`
+  color: ${({ theme }) => theme.colors.lightText};
+  position: absolute;
+  top: 25px;
+  right: 25px;
 `;

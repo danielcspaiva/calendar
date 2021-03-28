@@ -1,7 +1,11 @@
 import initialState from "../initialState";
 import { combineReducers } from "redux";
+import { ApplicationState } from "../types";
 
-const themeReducer = (state: any = initialState.theme, action: any) => {
+const themeReducer = (
+  state: ApplicationState["theme"] = initialState.theme,
+  action: any
+) => {
   switch (action.type) {
     case "TOGGLE_THEME":
       return state === "dark" ? "light" : "dark";
@@ -30,13 +34,37 @@ const eventsReducer = (state: any = initialState.events, action: any) => {
   }
 };
 
-const eventModalReducer = (
-  state: any = initialState.showCreateEvent,
+const createEventModalReducer = (
+  state: ApplicationState["showCreateEvent"] = initialState.showCreateEvent,
   action: any
 ) => {
   switch (action.type) {
-    case "TOGGLE_EVENT_MODAL":
+    case "TOGGLE_CREATE_EVENT_MODAL":
       return action.data;
+    default:
+      return state;
+  }
+};
+
+const eventDetailModalReducer = (
+  state: any = initialState.showEventDetail,
+  action: any
+) => {
+  switch (action.type) {
+    case "TOGGLE_EVENT_DETAIL_MODAL":
+      return action.data.show;
+    default:
+      return state;
+  }
+};
+
+const eventInDetailModalReducer = (
+  state: any = initialState.showEventDetail,
+  action: any
+) => {
+  switch (action.type) {
+    case "TOGGLE_EVENT_DETAIL_MODAL":
+      return action.data.event;
     default:
       return state;
   }
@@ -45,7 +73,9 @@ const eventModalReducer = (
 const allReducers = combineReducers({
   theme: themeReducer,
   events: eventsReducer,
-  showCreateEvent: eventModalReducer,
+  showCreateEvent: createEventModalReducer,
+  showEventDetail: eventDetailModalReducer,
+  eventInDetail: eventInDetailModalReducer,
 });
 
 export default allReducers;

@@ -5,9 +5,10 @@ import light from "./styles/themes/light";
 import GlobalStyle from "./styles/global";
 import { useSelector } from "react-redux";
 import Home from "./Home";
+import { ApplicationState } from "./redux/types";
 
 const App: React.FC = () => {
-  const { theme } = useSelector((state: any) => state);
+  const { theme } = useSelector((state: ApplicationState) => state);
   return (
     <ThemeProvider theme={theme === "dark" ? dark : light}>
       <GlobalStyle />

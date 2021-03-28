@@ -3,24 +3,25 @@ import {
   Container,
   Month,
   ThemeSwitch,
-  PreviousMonth,
-  NextMonth,
+  // PreviousMonth,
+  // NextMonth,
   Moon,
   Sun,
 } from "./styles";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../redux/actions";
 import { format } from "date-fns";
+import { ApplicationState } from "../../redux/types";
 
 const Header: React.FC = () => {
-  const theme = useSelector((state: any) => state.theme);
+  const theme = useSelector((state: ApplicationState) => state.theme);
   const dispatch = useDispatch();
   return (
     <Container>
       <Month>
-        <PreviousMonth />
+        {/* <PreviousMonth /> */}
         {format(new Date(), "MMMM")}
-        <NextMonth />
+        {/* <NextMonth /> */}
       </Month>
       <ThemeSwitch
         onChange={() => dispatch(toggleTheme())}

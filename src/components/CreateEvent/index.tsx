@@ -9,14 +9,16 @@ import {
   SubmitButton,
   ColorContainer,
   DateContainer,
+  Close,
 } from "./styles";
 import { setEvent, editEvent, deleteEvent } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowCreateEvent } from "../../redux/actions";
+import { EventProps } from "../../types";
 
 const CreateEvent: React.FC = () => {
   const [eventName, setEventName] = useState("");
-  const [eventColor, setEventColor] = useState("");
+  const [eventColor, setEventColor] = useState<EventProps["color"]>("cyan");
   const [eventCity, setEventCity] = useState("");
   const [eventDate, setEventDate] = useState("");
   const [eventTime, setEventTime] = useState("");
@@ -36,6 +38,7 @@ const CreateEvent: React.FC = () => {
   };
   return (
     <Container>
+      <Close onClick={() => dispatch(setShowCreateEvent(false))} />
       <CreateEventForm>
         <Title>Create new Event</Title>
         <AddEventInput
