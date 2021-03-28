@@ -36,6 +36,10 @@ const Event: React.FC<Event> = ({ event, detail }: Event) => {
   );
   const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${process.env.REACT_APP_OPENWEATHERAPP}`;
 
+  console.log(
+    "process.env.REACT_APP_OPENWEATHERAPP",
+    process.env.REACT_APP_OPENWEATHERAPP
+  );
   useEffect(() => {
     getWeatherData();
   }, []);
