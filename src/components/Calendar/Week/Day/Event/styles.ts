@@ -9,6 +9,8 @@ import {
   TiWeatherPartlySunny,
 } from "react-icons/ti";
 
+import { FiClock } from "react-icons/fi";
+
 interface ContainerProps {
   color: "cyan" | "salmon" | "pink" | "green" | "yellow";
   detail: boolean;
@@ -33,10 +35,10 @@ export const ContentText = styled.p`
   align-items: center;
 `;
 
-export const Location = styled(MdLocationOn).attrs(({ theme }) => ({
-  size: "15px",
-}))`
-  color: ${({ theme }) => theme.colors.darkText};
+export const CollapsedContentText = styled.p`
+  display: flex;
+  align-items: center;
+  padding: 2px;
 `;
 
 export const WeatherHeader = styled.div`
@@ -44,55 +46,74 @@ export const WeatherHeader = styled.div`
   align-items: center;
   justify-content: flex-end;
   > p {
-    font-size: 14px;
+    font-size: 1.7vh;
     margin-right: 2px;
   }
   width: 100%;
 `;
 
 export const WeatherContainer = styled.div`
-  font-size: 10px;
+  font-size: 1.5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  height: 100%;
   > p {
-    font-size: 12px;
+    font-size: 1.5vh;
   }
 `;
 
-export const Clouds = styled(TiWeatherCloudy).attrs(({ theme }) => ({
-  size: "15px",
-}))`
+export const Location = styled(MdLocationOn)`
   color: ${({ theme }) => theme.colors.darkText};
+  margin-right: 5px;
+  height: 1.5vh;
+  width: 1.5vh;
 `;
 
-export const Rain = styled(TiWeatherDownpour).attrs(({ theme }) => ({
-  size: "15px",
-}))`
+export const Clouds = styled(TiWeatherCloudy)`
   color: ${({ theme }) => theme.colors.darkText};
+  height: 2.5vh;
+  width: 2.5vh;
 `;
 
-export const Sunny = styled(TiWeatherSunny).attrs(({ theme }) => ({
-  size: "15px",
-}))`
+export const Rain = styled(TiWeatherDownpour)`
   color: ${({ theme }) => theme.colors.darkText};
+  height: 2.5vh;
+  width: 2.5vh;
 `;
 
-export const Snow = styled(TiWeatherSnow).attrs(({ theme }) => ({
-  size: "15px",
-}))`
+export const Sunny = styled(TiWeatherSunny)`
   color: ${({ theme }) => theme.colors.darkText};
+  height: 2.5vh;
+  width: 2.5vh;
 `;
 
-export const Storm = styled(TiWeatherStormy).attrs(({ theme }) => ({
-  size: "15px",
-}))`
+export const Snow = styled(TiWeatherSnow)`
   color: ${({ theme }) => theme.colors.darkText};
+  height: 2.5vh;
+  width: 2.5vh;
 `;
 
-export const PartlySunny = styled(TiWeatherPartlySunny).attrs(({ theme }) => ({
-  size: "15px",
-}))`
+export const Storm = styled(TiWeatherStormy)`
   color: ${({ theme }) => theme.colors.darkText};
+  height: 2.5vh;
+  width: 2.5vh;
+`;
+
+export const PartlySunny = styled(TiWeatherPartlySunny)`
+  color: ${({ theme }) => theme.colors.darkText};
+  height: 2.5vh;
+  width: 2.5vh;
+`;
+
+export const Clock = styled(FiClock)`
+  color: ${({ theme }) => theme.colors.darkText};
+  margin-right: 5px;
+  height: 1.5vh;
+  width: 1.5vh;
+`;
+
+export const Title = styled.p`
+  font-size: 2vh;
 `;

@@ -11,6 +11,9 @@ import {
   Snow,
   Storm,
   PartlySunny,
+  Clock,
+  Title,
+  CollapsedContentText,
 } from "./styles";
 import { EventProps } from "../../../../../types";
 import axios from "axios";
@@ -75,15 +78,21 @@ const Event: React.FC<Event> = ({ event, detail }: Event) => {
 
   return (
     <Container color={color} detail={detail}>
-      <div>
-        <ContentText>{time + ": " + name}</ContentText>
-        {detail && (
+      {detail ? (
+        <div>
+          <Title>{name}</Title>
           <ContentText>
             <Location />
             {city}
           </ContentText>
-        )}
-      </div>
+          <ContentText>
+            <Clock />
+            {time}
+          </ContentText>
+        </div>
+      ) : (
+        <CollapsedContentText>{name}</CollapsedContentText>
+      )}
       {detail && forecast ? (
         <WeatherContainer>
           <WeatherHeader>

@@ -32,7 +32,7 @@ export const Container = styled.div<ContainerProps>`
       : current
       ? lighten(0.03, theme.colors.background)
       : shade(0.6, theme.colors.background)};
-  border-radius: 5px;
+  border-radius: ${({ detail }) => (detail ? 15 : 5)}px;
   overflow: scroll;
 
   &:hover {
