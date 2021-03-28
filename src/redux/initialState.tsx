@@ -1,17 +1,17 @@
 const state = {
   theme: "dark",
   events: {
-    "2021-03-10": [
+    "2021-03-12": [
       {
-        name: "Futebol",
-        city: "Natal",
+        name: "Get groceries",
+        city: "New York",
         color: "salmon",
-        date: "2021-03-10",
+        date: "2021-03-29",
         time: "02:25",
       },
       {
-        name: "Cinema",
-        city: "Natal",
+        name: "Movies",
+        city: "Chicago",
         color: "cyan",
         date: "2021-03-10",
         time: "06:25",
@@ -19,8 +19,8 @@ const state = {
     ],
     "2021-03-15": [
       {
-        name: "Futebol",
-        city: "Natal",
+        name: "Play Soccer",
+        city: "Paris",
         color: "pink",
         date: "2021-03-10",
         time: "02:25",
@@ -28,8 +28,8 @@ const state = {
     ],
     "2021-03-25": [
       {
-        name: "Futebol",
-        city: "Natal",
+        name: "Dentist",
+        city: "Dubai",
         color: "pink",
         date: "2021-03-10",
         time: "02:25",
@@ -37,8 +37,8 @@ const state = {
     ],
     "2021-03-02": [
       {
-        name: "Futebol",
-        city: "Natal",
+        name: "Relax",
+        city: "Tokyo",
         color: "green",
         date: "2021-03-10",
         time: "02:25",
@@ -46,8 +46,8 @@ const state = {
     ],
     "2021-03-19": [
       {
-        name: "Futebol",
-        city: "Natal",
+        name: "Play Soccer",
+        city: "San Francisco",
         color: "yellow",
         date: "2021-03-10",
         time: "02:25",
@@ -55,8 +55,8 @@ const state = {
     ],
     "2021-03-28": [
       {
-        name: "Futebol",
-        city: "Natal",
+        name: "Study",
+        city: "São Paulo",
         color: "salmon",
         date: "2021-03-10",
         time: "02:25",
@@ -64,22 +64,22 @@ const state = {
     ],
     "2021-03-29": [
       {
-        name: "antes do barco",
-        city: "natal",
+        name: "Boat Party",
+        city: "New York",
         color: "cyan",
         date: "2021-03-29",
         time: "02:38",
       },
       {
-        name: "barco",
-        city: "natal",
+        name: "Study",
+        city: "London",
         color: "salmon",
         date: "2021-03-29",
         time: "03:37",
       },
       {
-        name: "depois do barco",
-        city: "natal",
+        name: "Relax",
+        city: "São Paulo",
         color: "pink",
         date: "2021-03-29",
         time: "04:38",
@@ -87,8 +87,8 @@ const state = {
     ],
     "2021-03-30": [
       {
-        name: "after do barco",
-        city: "natal",
+        name: "Work",
+        city: "Limerick",
         color: "yellow",
         date: "2021-03-30",
         time: "07:39",

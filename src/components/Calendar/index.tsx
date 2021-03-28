@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, AddEventButton, AddIcon } from "./styles";
 import { useSelector, useDispatch } from "react-redux";
-import { setShowCreateEvent } from "../../redux/actions";
+import { setShowCreateEvent, setshowDayDetail } from "../../redux/actions";
 import { startOfMonth, startOfWeek, addDays } from "date-fns";
 import { ApplicationState } from "../../redux/types";
 
@@ -29,6 +29,11 @@ const Calendar: React.FC = () => {
     setCalendar(calendarArray);
   };
 
+  const handleClick = () => {
+    dispatch(setshowDayDetail(false));
+    dispatch(setShowCreateEvent(!showCreateEvent));
+  };
+
   useEffect(() => {
     generateArray();
   }, []);
@@ -40,9 +45,7 @@ const Calendar: React.FC = () => {
         calendar.map((week: Date[], idx: number) => (
           <Week key={idx} weekArray={week} />
         ))}
-      <AddEventButton
-        onClick={() => dispatch(setShowCreateEvent(!showCreateEvent))}
-      >
+      <AddEventButton onClick={() => handleClick()}>
         <AddIcon />
       </AddEventButton>
       {showCreateEvent && <CreateEvent />}

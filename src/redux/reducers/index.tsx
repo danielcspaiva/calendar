@@ -51,7 +51,7 @@ const eventDetailModalReducer = (
   action: any
 ) => {
   switch (action.type) {
-    case "TOGGLE_EVENT_DETAIL_MODAL":
+    case "TOGGLE_DAY_DETAIL_MODAL":
       return action.data.show;
     default:
       return state;
@@ -63,8 +63,8 @@ const dayInDetailModalReducer = (
   action: any
 ) => {
   switch (action.type) {
-    case "TOGGLE_EVENT_DETAIL_MODAL":
-      return action.data.event;
+    case "TOGGLE_DAY_DETAIL_MODAL":
+      return action.data.day;
     default:
       return state;
   }

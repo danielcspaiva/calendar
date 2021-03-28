@@ -12,6 +12,7 @@ export const Container = styled.div`
   bottom: 20vh;
   border-radius: 20px;
   display: flex;
+  padding: 20px;
   flex-direction: column;
   justify-content: space-around;
   box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.45);
@@ -65,8 +66,12 @@ export const AddEventInput = styled.input`
   height: 45px;
   padding: 0 10px;
   font-family: "Open Sans", sans-serif;
-  border: 2px solid ${({ theme }) => shade(0.4, theme.colors.lightText)};
+  border: 2px solid ${({ theme }) => shade(0.4, theme.colors.accent)};
   border-width: 0 0 2px 0;
+  ::placeholder {
+    color: ${({ theme }) => theme.colors.lightText};
+    opacity: 1;
+  }
 `;
 
 export const Title = styled.div`
@@ -99,6 +104,6 @@ export const Close = styled(VscClose).attrs(({ theme }) => ({
 }))`
   color: ${({ theme }) => theme.colors.lightText};
   position: absolute;
-  top: 35px;
-  right: 35px;
+  top: 30px;
+  right: 30px;
 `;
