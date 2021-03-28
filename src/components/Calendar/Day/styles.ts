@@ -3,6 +3,7 @@ import { shade, lighten } from "polished";
 
 interface ContainerProps {
   current: boolean;
+  isToday: boolean;
 }
 interface DayOfMonthProps {
   current: boolean;
@@ -14,8 +15,10 @@ export const Container = styled.div<ContainerProps>`
   align-items: stretch;
   padding: 1%;
   margin: 0.5%;
-  background: ${({ theme, current }) =>
-    theme.title === "light"
+  background: ${({ theme, current, isToday }) =>
+    isToday
+      ? theme.colors.accent
+      : theme.title === "light"
       ? current
         ? shade(0.03, theme.colors.background)
         : shade(0.15, theme.colors.background)

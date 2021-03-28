@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { shade } from "polished";
 
 export const Container = styled.div`
   height: 500px;
@@ -12,7 +13,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 20px;
+  padding: 30px;
+  box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.45);
 `;
 
 interface ColorProps {
@@ -22,18 +24,30 @@ interface ColorProps {
 }
 
 export const Color = styled.div<ColorProps>`
-  height: ${({ selected }) => (selected ? 35 : 25)}px;
-  width: ${({ selected }) => (selected ? 35 : 25)}px;
+  height: ${({ selected }) => (selected ? 25 : 20)}px;
+  width: ${({ selected }) => (selected ? 25 : 20)}px;
   border-radius: 50px;
-  margin: 20px;
   background: ${({ theme, color }) => theme.colors[color]};
 `;
 
 export const ColorPicker = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  height: 45px;
+  > p {
+    font-size: 16px;
+    padding: 10px;
+  }
+`;
+
+export const ColorContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 `;
 
 export const CreateEventForm = styled.form`
@@ -47,8 +61,33 @@ export const AddEventInput = styled.input`
   background: none;
   color: ${({ theme }) => theme.colors.lightText};
   font-size: 16px;
+  height: 45px;
+  padding: 0 10px;
+  font-family: "Open Sans", sans-serif;
+  border: 2px solid ${({ theme }) => shade(0.4, theme.colors.lightText)};
+  border-width: 0 0 2px 0;
 `;
 
 export const Title = styled.div`
   font-size: 20px;
+  font-weight: bold;
+`;
+
+export const SubmitButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  height: 40px;
+  border-radius: 20px;
+  color: ${({ theme }) => theme.colors.darkText};
+  background: ${({ theme }) => theme.colors.accent};
+`;
+
+export const DateContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  > * {
+    width: 48%;
+  }
 `;

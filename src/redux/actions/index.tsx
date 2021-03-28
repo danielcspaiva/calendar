@@ -24,3 +24,10 @@ export const deleteEvent = (eventID: string) => {
     data: eventID,
   };
 };
+
+export const setShowCreateEvent = (show: boolean) => {
+  return {
+    type: "TOGGLE_EVENT_MODAL",
+    data: show,
+  };
+};
