@@ -47,7 +47,7 @@ const createEventModalReducer = (
 };
 
 const eventDetailModalReducer = (
-  state: any = initialState.showEventDetail,
+  state: any = initialState.showDayDetail,
   action: any
 ) => {
   switch (action.type) {
@@ -58,8 +58,8 @@ const eventDetailModalReducer = (
   }
 };
 
-const eventInDetailModalReducer = (
-  state: any = initialState.showEventDetail,
+const dayInDetailModalReducer = (
+  state: any = initialState.showDayDetail,
   action: any
 ) => {
   switch (action.type) {
@@ -74,8 +74,8 @@ const allReducers = combineReducers({
   theme: themeReducer,
   events: eventsReducer,
   showCreateEvent: createEventModalReducer,
-  showEventDetail: eventDetailModalReducer,
-  eventInDetail: eventInDetailModalReducer,
+  showDayDetail: eventDetailModalReducer,
+  dayInDetail: dayInDetailModalReducer,
 });
 
 export default allReducers;

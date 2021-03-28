@@ -15,6 +15,6 @@ export const DayOfWeek = styled.p`
   font-weight: bold;
   align-items: center;
   self-align: center;
-  color: ${({ theme }) => theme.colors.primatyText};
+  color: ${({ theme }) => theme.colors.primaryText};
   margin-bottom: 2%;
 `;

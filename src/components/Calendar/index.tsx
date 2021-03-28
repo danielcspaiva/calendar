@@ -8,11 +8,11 @@ import { ApplicationState } from "../../redux/types";
 import Week from "./Week";
 import WeekDays from "./WeekDays";
 import CreateEvent from "../CreateEvent";
-import EventDetails from "../EventDetails";
+import DayDetails from "../DayDetails";
 
 const Calendar: React.FC = () => {
   const [calendar, setCalendar] = useState([[new Date()]]);
-  const { showCreateEvent, showEventDetail } = useSelector(
+  const { showCreateEvent, showDayDetail } = useSelector(
     (state: ApplicationState) => state
   );
 
@@ -46,7 +46,7 @@ const Calendar: React.FC = () => {
         <AddIcon />
       </AddEventButton>
       {showCreateEvent && <CreateEvent />}
-      {showEventDetail && <EventDetails />}
+      {showDayDetail && <DayDetails />}
     </Container>
   );
 };

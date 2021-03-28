@@ -14,7 +14,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 30px;
   box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.45);
 `;
 
@@ -55,7 +54,8 @@ export const CreateEventForm = styled.form`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 10px;
 `;
 
 export const AddEventInput = styled.input`
@@ -78,9 +78,10 @@ export const SubmitButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 18px;
   font-weight: bold;
   height: 40px;
-  border-radius: 20px;
+  border-radius: 10px;
   color: ${({ theme }) => theme.colors.darkText};
   background: ${({ theme }) => theme.colors.accent};
 `;
@@ -98,6 +99,6 @@ export const Close = styled(VscClose).attrs(({ theme }) => ({
 }))`
   color: ${({ theme }) => theme.colors.lightText};
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: 35px;
+  right: 35px;
 `;

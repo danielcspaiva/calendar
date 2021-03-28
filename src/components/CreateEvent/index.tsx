@@ -40,7 +40,7 @@ const CreateEvent: React.FC = () => {
     <Container>
       <Close onClick={() => dispatch(setShowCreateEvent(false))} />
       <CreateEventForm>
-        <Title>Create new Event</Title>
+        <Title>Create new event</Title>
         <AddEventInput
           type="text"
           required

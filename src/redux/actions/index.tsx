@@ -34,7 +34,7 @@ export const setShowCreateEvent = (show: boolean) => {
   };
 };
 
-export const setShowEventDetail = (show: boolean, event: EventProps) => {
+export const setshowDayDetail = (show: boolean, event: Date) => {
   return {
     type: "TOGGLE_EVENT_DETAIL_MODAL",
     data: { show, event },

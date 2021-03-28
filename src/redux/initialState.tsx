@@ -84,13 +84,6 @@ const state = {
         date: "2021-03-29",
         time: "04:38",
       },
-      {
-        name: "after do barco",
-        city: "natal",
-        color: "green",
-        date: "2021-03-29",
-        time: "07:39",
-      },
     ],
     "2021-03-30": [
       {
@@ -103,8 +96,8 @@ const state = {
     ],
   },
   showCreateEvent: false,
-  showEventDetail: false,
-  eventInDetail: {},
+  showDayDetail: false,
+  dayInDetail: {},
 };
 
 export default state;

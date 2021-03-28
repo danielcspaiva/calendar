@@ -1,24 +1,31 @@
 import React from "react";
-import { Container } from "./styles";
+import { Container, ContentText, Location } from "./styles";
 import { useDispatch, useSelector } from "react-redux";
-import { setShowEventDetail } from "../../../../../redux/actions";
+import { setshowDayDetail } from "../../../../../redux/actions";
 import { EventProps } from "../../../../../types";
 import { ApplicationState } from "../../../../../redux/types";
 
 interface Event {
   event: EventProps;
+  detail: boolean;
 }
 
-const Event: React.FC<Event> = ({ event }) => {
+const Event: React.FC<Event> = ({ event, detail }: Event) => {
   const { city, color, date, name, time } = event;
-  const { showEventDetail } = useSelector((state: ApplicationState) => state);
+  const { showDayDetail } = useSelector((state: ApplicationState) => state);
   const dispatch = useDispatch();
   return (
-    <Container
-      onClick={() => dispatch(setShowEventDetail(!showEventDetail, event))}
-      color={color}
-    >
-      {time + ": " + name}
+    <Container color={color} detail={detail}>
+      <div>
+        <ContentText>{time + ": " + name}</ContentText>
+        {detail && (
+          <ContentText>
+            <Location />
+            {city}
+          </ContentText>
+        )}
+      </div>
+      {detail && <Location />}
     </Container>
   );
 };

@@ -7,7 +7,7 @@ const light = {
     background: "#FFFFFF",
     lightText: "#FFFFFF",
     darkText: "#121212",
-    primatyText: "#121212",
+    primaryText: "#121212",
     secondaryText: "#FFFFFF",
     cyan: "#a1fff7",
     salmon: "#ff9ea5",
