@@ -24,7 +24,7 @@ This project a simple calendar view of the current month where you can add event
 - [TypesCript](https://www.typescriptlang.org/) - A strict syntactical superset of JavaScript and adds optional static typing to the language.
 - [Redux](https://redux.js.org/) - A Predictable State Container for JS Apps.
 - [Jest](https://jestjs.io/) - Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
-- [Styled Components](https://styled-components.com/) - A library for React and React Native that allows you to use component-level styles in your application that are written with a mixture of JavaScript and CSS using a technique called CSS-in-JS.
+- [Styled Components](https://styled-components.com/) - A library for React and React Native that allows you to use component-level styles in your application.
 - [OpenWeather API](https://openweathermap.org/api) - API used to fetch the weather data.
 - [Vercel](https://vercel.com/) - Cloud platform where the project is deployed.
 
@@ -58,4 +58,4 @@ yarn test || npm run test
 
 ---
 
-Built by Daniel Paiva
+Built by Daniel - [email](mailto:danielcspaiva@gmail.com) - [linkedin](https://www.linkedin.com/in/danielcspaiva/)
