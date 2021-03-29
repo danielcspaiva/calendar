@@ -5,7 +5,8 @@
 </p>
 
 <p align="center">
- <a href="https://calendar-seven.vercel.app/">Access it here!</a>
+The project is deployed and can be 
+ <a href="https://calendar-seven.vercel.app/">accessed here!</a>
 </p>
 
 ## Getting Started
