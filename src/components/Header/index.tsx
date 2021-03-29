@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../redux/actions";
 import { format } from "date-fns";
 import { ApplicationState } from "../../redux/types";
+// import { BsCalendar } from "react-icons/bs";
 
 const Header: React.FC = () => {
   const theme = useSelector((state: ApplicationState) => state.theme);
@@ -20,6 +21,7 @@ const Header: React.FC = () => {
     <Container>
       <Month>
         {/* <PreviousMonth /> */}
+        {/* <BsCalendar style={{ marginRight: 15 }} /> */}
         {format(new Date(), "MMMM")}
         {/* <NextMonth /> */}
       </Month>

@@ -10,6 +10,7 @@ import {
   ColorContainer,
   DateContainer,
   Close,
+  CheckMark,
 } from "./styles";
 import { setEvent, editEvent, deleteEvent } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
@@ -62,27 +63,37 @@ const CreateEvent: React.FC = () => {
               color={"cyan"}
               onClick={() => setEventColor("cyan")}
               selected={eventColor === "cyan"}
-            />
+            >
+              {eventColor === "cyan" && <CheckMark />}
+            </Color>
             <Color
               color={"salmon"}
               onClick={() => setEventColor("salmon")}
               selected={eventColor === "salmon"}
-            />
+            >
+              {eventColor === "salmon" && <CheckMark />}
+            </Color>
             <Color
               color={"pink"}
               onClick={() => setEventColor("pink")}
               selected={eventColor === "pink"}
-            />
+            >
+              {eventColor === "pink" && <CheckMark />}
+            </Color>
             <Color
               color={"green"}
               onClick={() => setEventColor("green")}
               selected={eventColor === "green"}
-            />
+            >
+              {eventColor === "green" && <CheckMark />}
+            </Color>
             <Color
               color={"yellow"}
               onClick={() => setEventColor("yellow")}
               selected={eventColor === "yellow"}
-            />
+            >
+              {eventColor === "yellow" && <CheckMark />}
+            </Color>
           </ColorContainer>
         </ColorPicker>
         <DateContainer>

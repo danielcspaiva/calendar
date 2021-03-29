@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { shade } from "polished";
 import { VscClose } from "react-icons/vsc";
+import { ImCheckmark } from "react-icons/im";
 
 export const Container = styled.div`
   height: 500px;
@@ -25,10 +26,19 @@ interface ColorProps {
 }
 
 export const Color = styled.div<ColorProps>`
-  height: ${({ selected }) => (selected ? 25 : 20)}px;
-  width: ${({ selected }) => (selected ? 25 : 20)}px;
+  height: 25px;
+  width: 25px;
   border-radius: 50px;
   background: ${({ theme, color }) => theme.colors[color]};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CheckMark = styled(ImCheckmark).attrs(({ theme }) => ({
+  size: "15px",
+}))`
+  color: ${({ theme }) => theme.colors.darkText};
 `;
 
 export const ColorPicker = styled.div`
