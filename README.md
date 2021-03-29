@@ -18,6 +18,9 @@ This project a simple calendar view of the current month where you can add event
 - On the main screen, click "+" to add a reminder.
 - Click on any day to see the events for that day, edit and delete events.
 
+## Observations
+
+- The free tier of the OpenWeather API only provides a 5 day weather forecast, so the application will only be able to show weather forecast for the following 5 days.
 ### Built With:
 
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
