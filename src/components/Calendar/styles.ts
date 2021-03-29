@@ -23,7 +23,8 @@ export const AddEventButton = styled.div`
   height: 7vh;
   width: 7vh;
   border-radius: 7vh;
-
+  cursor: pointer;
+  
   background: ${({ theme }) => theme.colors.accent};
   &:hover {
     background: ${({ theme }) => shade(0.1, theme.colors.accent)};

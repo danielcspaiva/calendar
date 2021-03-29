@@ -33,6 +33,7 @@ export const Color = styled.div<ColorProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 
 export const CheckMark = styled(ImCheckmark).attrs(({ theme }) => ({
@@ -99,6 +100,11 @@ export const SubmitButton = styled.div`
   border-radius: 10px;
   color: ${({ theme }) => theme.colors.darkText};
   background: ${({ theme }) => theme.colors.accent};
+  cursor: pointer;
+
+  &:hover {
+    background: ${({ theme }) => shade(0.1, theme.colors.accent)};
+  }
 `;
 
 export const DateContainer = styled.div`
@@ -116,4 +122,5 @@ export const Close = styled(VscClose).attrs(({ theme }) => ({
   position: absolute;
   top: 30px;
   right: 30px;
+  cursor: pointer;
 `;

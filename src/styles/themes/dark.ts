@@ -14,6 +14,7 @@ const dark = {
     pink: "#fc99ff",
     green: "#96fab4",
     yellow: "#fff29e",
+    red: "#ff3333",
   },
 };
 

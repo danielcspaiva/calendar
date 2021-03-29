@@ -37,6 +37,7 @@ export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: ${({ detail }) => (detail ? null : 'pointer')};
 
   &:hover {
     background: ${({ theme, isToday, detail }) =>
@@ -74,6 +75,7 @@ export const Close = styled(VscClose).attrs(({ theme }) => ({
   size: "35px",
 }))`
   color: ${({ theme }) => theme.colors.primaryText};
+  cursor: pointer;
 `;
 
 export const DetailHeader = styled.div<DetailHeaderProps>`
@@ -91,5 +93,10 @@ export const DeleteAll = styled.div`
   height: 40px;
   border-radius: 10px;
   color: ${({ theme }) => theme.colors.darkText};
-  background: #ff3333;
+  background: ${({ theme }) => theme.colors.red};
+  cursor: pointer;
+
+  &:hover {
+    background: ${({ theme }) => shade(0.1, theme.colors.red)};
+  }
 `;

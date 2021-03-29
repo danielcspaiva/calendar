@@ -113,12 +113,14 @@ export const Delete = styled(MdDelete)`
   color: ${({ theme }) => theme.colors.darkText};
   height: 2.5vh;
   width: 2.5vh;
+  cursor: pointer;
 `;
 
 export const Edit = styled(MdEdit)`
   color: ${({ theme }) => theme.colors.darkText};
   height: 2.5vh;
   width: 2.5vh;
+  cursor: pointer;
 `;
 
 export const Clock = styled(FiClock)`
