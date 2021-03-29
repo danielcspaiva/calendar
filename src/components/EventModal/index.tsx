@@ -24,15 +24,14 @@ interface EventModalProps {
 
 const EventModal: React.FC<EventModalProps> = ({ type }) => {
   const { eventToEdit } = useSelector((state: ApplicationState) => state);
-  const { city, color, date, name, time, id } = eventToEdit;
-  const [eventName, setEventName] = useState(type === "create" ? "" : name);
+  const [eventName, setEventName] = useState(type === "create" ? "" : eventToEdit.name);
   const [eventColor, setEventColor] = useState<EventProps["color"]>(
-    type === "create" ? "cyan" : color
+    type === "create" ? "cyan" : eventToEdit.color
   );
-  const [eventCity, setEventCity] = useState(type === "create" ? "" : city);
-  const [eventDate, setEventDate] = useState(type === "create" ? "" : date);
-  const [eventTime, setEventTime] = useState(type === "create" ? "" : time);
-  const eventId = type === "create" ? Math.random().toString() : id;
+  const [eventCity, setEventCity] = useState(type === "create" ? "" : eventToEdit.city);
+  const [eventDate, setEventDate] = useState(type === "create" ? "" : eventToEdit.date);
+  const [eventTime, setEventTime] = useState(type === "create" ? "" : eventToEdit.time);
+  const eventId = type === "create" ? Math.random().toString() : eventToEdit.id;
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
@@ -59,16 +58,20 @@ const EventModal: React.FC<EventModalProps> = ({ type }) => {
   };
 
   return (
-    <Container>
-      <Close onClick={() => handleClose()} />
-      <CreateEventForm>
-        <Title>{type === "create" ? "Create New Event" : "Edit Event"}</Title>
+    <Container data-testid={"modal-container"}>
+      <Close onClick={() => handleClose()} data-testid={"close-button"} />
+      <CreateEventForm data-testid={"form-container"}>
+        <Title data-testid={"form-title"}>
+          {type === "create" ? "Create New Event" : "Edit Event"}
+        </Title>
         <AddEventInput
           type="text"
           required
           value={eventName}
           onChange={({ target }) => setEventName(target.value)}
           placeholder="Name"
+          maxLength={30}
+          data-testid={"name-input"}
         />
         <AddEventInput
           type="text"
@@ -76,14 +79,16 @@ const EventModal: React.FC<EventModalProps> = ({ type }) => {
           value={eventCity}
           onChange={({ target }) => setEventCity(target.value)}
           placeholder="City"
+          data-testid={"city-input"}
         />
-        <ColorPicker>
-          <p>Color</p>
-          <ColorContainer>
+        <ColorPicker data-testid={"color-container"}>
+          <p data-testid={"color-title"}>Color</p>
+          <ColorContainer data-testid={"color-inner-container"}>
             <Color
               color={"cyan"}
               onClick={() => setEventColor("cyan")}
               selected={eventColor === "cyan"}
+              data-testid={"color-cyan"}
             >
               {eventColor === "cyan" && <CheckMark />}
             </Color>
@@ -91,6 +96,7 @@ const EventModal: React.FC<EventModalProps> = ({ type }) => {
               color={"salmon"}
               onClick={() => setEventColor("salmon")}
               selected={eventColor === "salmon"}
+              data-testid={"color-salmon"}
             >
               {eventColor === "salmon" && <CheckMark />}
             </Color>
@@ -98,6 +104,7 @@ const EventModal: React.FC<EventModalProps> = ({ type }) => {
               color={"pink"}
               onClick={() => setEventColor("pink")}
               selected={eventColor === "pink"}
+              data-testid={"color-pink"}
             >
               {eventColor === "pink" && <CheckMark />}
             </Color>
@@ -105,6 +112,7 @@ const EventModal: React.FC<EventModalProps> = ({ type }) => {
               color={"green"}
               onClick={() => setEventColor("green")}
               selected={eventColor === "green"}
+              data-testid={"color-green"}
             >
               {eventColor === "green" && <CheckMark />}
             </Color>
@@ -112,26 +120,29 @@ const EventModal: React.FC<EventModalProps> = ({ type }) => {
               color={"yellow"}
               onClick={() => setEventColor("yellow")}
               selected={eventColor === "yellow"}
+              data-testid={"color-yellow"}
             >
               {eventColor === "yellow" && <CheckMark />}
             </Color>
           </ColorContainer>
         </ColorPicker>
-        <DateContainer>
+        <DateContainer data-testid={"date-container"}>
           <AddEventInput
             type="date"
             value={eventDate}
             required
             onChange={({ target }) => setEventDate(target.value)}
+            data-testid={"date-input"}
           />
           <AddEventInput
             type="time"
             value={eventTime}
             required
             onChange={({ target }) => setEventTime(target.value)}
+            data-testid={"time-input"}
           ></AddEventInput>
         </DateContainer>
-        <SubmitButton onClick={() => handleSubmit()}>
+        <SubmitButton onClick={() => handleSubmit()} data-testid={"submit-button"}>
           {type === "create" ? "Create" : "Edit"}
         </SubmitButton>
       </CreateEventForm>
