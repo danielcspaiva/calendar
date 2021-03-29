@@ -47,7 +47,9 @@ yarn install || npm install
 
 3. Get OpenWeather API Keys.
 
+```sh
 Visit https://openweathermap.org/ and create a free account to get API Keys.
+```
 
 4. Create a .env file in the project root directory and add the following line with your API Keys.
 
