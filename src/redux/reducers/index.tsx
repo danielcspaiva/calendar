@@ -23,12 +23,13 @@ const eventsReducer = (state: any = initialState.events, action: any) => {
       } else {
         return { ...state, [action.data.date]: [action.data] };
       }
-    // case "EDIT_EVENT":
-    //   state[action.data.date] = action.data;
-    //   return state;
-    case "DELETE_EVENT":
-      delete state[action.data];
+    case "EDIT_EVENT":
+      console.log("state", state);
+      // state[action.data.date] = action.data;
       return state;
+    // case "DELETE_EVENT":
+    //   delete state[action.data];
+    //   return state;
     default:
       return state;
   }
@@ -70,12 +71,38 @@ const dayInDetailModalReducer = (
   }
 };
 
+const editEventlModalReducer = (
+  state: any = initialState.showEditEvent,
+  action: any
+) => {
+  switch (action.type) {
+    case "TOGGLE_EDIT_EVENT_MODAL":
+      return action.data.show;
+    default:
+      return state;
+  }
+};
+
+const eventToEditModalReducer = (
+  state: any = initialState.eventToEdit,
+  action: any
+) => {
+  switch (action.type) {
+    case "TOGGLE_EDIT_EVENT_MODAL":
+      return action.data.event;
+    default:
+      return state;
+  }
+};
+
 const allReducers = combineReducers({
   theme: themeReducer,
   events: eventsReducer,
   showCreateEvent: createEventModalReducer,
   showDayDetail: eventDetailModalReducer,
   dayInDetail: dayInDetailModalReducer,
+  showEditEvent: editEventlModalReducer,
+  eventToEdit: eventToEditModalReducer,
 });
 
 export default allReducers;

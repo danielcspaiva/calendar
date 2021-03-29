@@ -18,6 +18,13 @@ import {
 import { EventProps } from "../../../../../types";
 import axios from "axios";
 import differenceInMinutes from "date-fns/differenceInMinutes";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setEvent,
+  editEvent,
+  deleteEvent,
+  setShowEditEvent,
+} from "../../../../../redux/actions";
 
 interface Event {
   event: EventProps;
@@ -34,6 +41,8 @@ interface ForecastProps {
 
 const Event: React.FC<Event> = ({ event, detail }: Event) => {
   const { city, color, date, name, time } = event;
+  const dispatch = useDispatch();
+
   const [forecast, setForecast] = useState<ForecastProps | undefined>(
     undefined
   );
@@ -76,6 +85,14 @@ const Event: React.FC<Event> = ({ event, detail }: Event) => {
     }
   };
 
+  const handleEdit = () => {
+    dispatch(setShowEditEvent(true, event));
+  };
+
+  const handleDelete = () => {
+    dispatch(deleteEvent(event));
+  }
+
   return (
     <Container color={color} detail={detail}>
       {detail ? (
@@ -104,6 +121,8 @@ const Event: React.FC<Event> = ({ event, detail }: Event) => {
       ) : (
         detail && <ContentText>No forecast data</ContentText>
       )}
+      {/* {detail && <p onClick={() => handleEdit()}>edit</p>}
+      {detail && <p onClick={() => handleDelete()}>delete</p>} */}
     </Container>
   );
 };

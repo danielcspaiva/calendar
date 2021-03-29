@@ -9,7 +9,7 @@ export const toggleTheme = () => {
 export const setEvent = (event: EventProps) => {
   return {
     type: "SET_EVENT",
-    data: event,
+    data: { ...event, id: Math.random() * 10000 },
   };
 };
 
@@ -20,10 +20,10 @@ export const editEvent = (event: EventProps) => {
   };
 };
 
-export const deleteEvent = (eventID: string) => {
+export const deleteEvent = (event: EventProps) => {
   return {
     type: "DELETE_EVENT",
-    data: eventID,
+    data: event,
   };
 };
 
@@ -31,6 +31,13 @@ export const setShowCreateEvent = (show: boolean) => {
   return {
     type: "TOGGLE_CREATE_EVENT_MODAL",
     data: show,
+  };
+};
+
+export const setShowEditEvent = (show: boolean, event: EventProps) => {
+  return {
+    type: "TOGGLE_EDIT_EVENT_MODAL",
+    data: { show, event },
   };
 };
 
