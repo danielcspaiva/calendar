@@ -16,6 +16,10 @@ interface DetailHeaderProps {
   detail: boolean;
 }
 
+interface EventsContainerProps {
+  detail: boolean;
+}
+
 export const Container = styled.div<ContainerProps>`
   height: 100%;
   width: 100%;
@@ -33,7 +37,7 @@ export const Container = styled.div<ContainerProps>`
       ? lighten(0.03, theme.colors.background)
       : shade(0.6, theme.colors.background)};
   border-radius: ${({ detail }) => (detail ? 15 : 5)}px;
-  overflow: scroll;
+  overflow: ${({ detail }) => detail && 'scroll'};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -51,12 +55,12 @@ export const Container = styled.div<ContainerProps>`
   }
 `;
 
-export const EventsContainer = styled.div`
+export const EventsContainer = styled.div<EventsContainerProps>`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
-  overflow: scroll;
+  overflow: ${({ detail }) => detail && 'scroll'};
 `;
 
 export const DayOfMonth = styled.p<DayOfMonthProps>`

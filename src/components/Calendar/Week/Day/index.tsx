@@ -52,7 +52,7 @@ const Day: React.FC<DayProps> = ({ day, detail }: DayProps) => {
           <Close onClick={() => dispatch(setshowDayDetail(false, day))} />
         )}
       </DetailHeader>
-      <EventsContainer>
+      <EventsContainer detail={detail}>
         {events &&
           events.map((event: EventProps, idx: number) => (
             <Event key={idx} event={event} detail={detail} />
