@@ -13,17 +13,24 @@ export const setEvent = (event: EventProps) => {
   };
 };
 
-export const editEvent = (event: EventProps) => {
+export const editEvent = (event: EventProps, oldEvent: EventProps) => {
   return {
     type: "EDIT_EVENT",
+    data: { event, oldEvent },
+  };
+};
+
+export const deleteEvent = (event: EventProps) => {
+  return {
+    type: "DELETE_EVENT",
     data: event,
   };
 };
 
-export const deleteEvent = (eventID: string) => {
+export const deleteAll = (day: Date) => {
   return {
-    type: "DELETE_EVENT",
-    data: eventID,
+    type: "DELETE_ALL_EVENTS",
+    data: day,
   };
 };
 
@@ -31,6 +38,13 @@ export const setShowCreateEvent = (show: boolean) => {
   return {
     type: "TOGGLE_CREATE_EVENT_MODAL",
     data: show,
+  };
+};
+
+export const setShowEditEvent = (show: boolean, event: EventProps) => {
+  return {
+    type: "TOGGLE_EDIT_EVENT_MODAL",
+    data: { show, event },
   };
 };
 

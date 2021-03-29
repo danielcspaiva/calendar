@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { ApplicationState } from "../../redux/types";
 import Day from "../Calendar/Week/Day";
 
-const DayDetails: React.FC = ({}) => {
+const DayDetails: React.FC = () => {
   const { dayInDetail } = useSelector((state: ApplicationState) => state);
 
   return (

@@ -1,4 +1,4 @@
-import React, { SetStateAction, useState, Dispatch } from "react";
+import React, { useState } from "react";
 import {
   Container,
   Color,
@@ -12,17 +12,27 @@ import {
   Close,
   CheckMark,
 } from "./styles";
-import { setEvent, editEvent, deleteEvent } from "../../redux/actions";
+import { setEvent, editEvent } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
-import { setShowCreateEvent } from "../../redux/actions";
+import { setShowCreateEvent, setShowEditEvent } from "../../redux/actions";
 import { EventProps } from "../../types";
+import { ApplicationState } from "../../redux/types";
 
-const CreateEvent: React.FC = () => {
-  const [eventName, setEventName] = useState("");
-  const [eventColor, setEventColor] = useState<EventProps["color"]>("cyan");
-  const [eventCity, setEventCity] = useState("");
-  const [eventDate, setEventDate] = useState("");
-  const [eventTime, setEventTime] = useState("");
+interface EventModalProps {
+  type: "create" | "edit";
+}
+
+const EventModal: React.FC<EventModalProps> = ({ type }) => {
+  const { eventToEdit } = useSelector((state: ApplicationState) => state);
+  const { city, color, date, name, time, id } = eventToEdit;
+  const [eventName, setEventName] = useState(type === "create" ? "" : name);
+  const [eventColor, setEventColor] = useState<EventProps["color"]>(
+    type === "create" ? "cyan" : color
+  );
+  const [eventCity, setEventCity] = useState(type === "create" ? "" : city);
+  const [eventDate, setEventDate] = useState(type === "create" ? "" : date);
+  const [eventTime, setEventTime] = useState(type === "create" ? "" : time);
+  const eventId = type === "create" ? Math.random().toString() : id;
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
@@ -32,16 +42,27 @@ const CreateEvent: React.FC = () => {
       color: eventColor,
       date: eventDate,
       time: eventTime,
+      id: eventId,
     };
 
-    dispatch(setEvent(event));
-    dispatch(setShowCreateEvent(false));
+    console.log("handleSubmit", type);
+    type === "create"
+      ? dispatch(setEvent(event))
+      : dispatch(editEvent(event, eventToEdit));
+    handleClose();
   };
+
+  const handleClose = () => {
+    type === "create"
+      ? dispatch(setShowCreateEvent(false))
+      : dispatch(setShowEditEvent(false, eventToEdit));
+  };
+
   return (
     <Container>
-      <Close onClick={() => dispatch(setShowCreateEvent(false))} />
+      <Close onClick={() => handleClose()} />
       <CreateEventForm>
-        <Title>Create new event</Title>
+        <Title>{type === "create" ? "Create New Event" : "Edit Event"}</Title>
         <AddEventInput
           type="text"
           required
@@ -110,10 +131,12 @@ const CreateEvent: React.FC = () => {
             onChange={({ target }) => setEventTime(target.value)}
           ></AddEventInput>
         </DateContainer>
-        <SubmitButton onClick={() => handleSubmit()}>Create</SubmitButton>
+        <SubmitButton onClick={() => handleSubmit()}>
+          {type === "create" ? "Create" : "Edit"}
+        </SubmitButton>
       </CreateEventForm>
     </Container>
   );
 };
 
-export default CreateEvent;
+export default EventModal;

@@ -6,4 +6,6 @@ export interface ApplicationState {
   showCreateEvent: boolean;
   showDayDetail: boolean;
   dayInDetail: Date;
+  showEditEvent: boolean;
+  eventToEdit: EventProps;
 }
