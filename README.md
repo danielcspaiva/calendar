@@ -42,19 +42,29 @@ git clone https://github.com/danielcspaiva/calendar.git
 yarn install || npm install
 ```
 
-3. Run the app.
+3. Get OpenWeather API Keys.
+
+Visit https://openweathermap.org/ and create a free account to get API Keys.
+
+Create a .enn file in the project root directory and add:
+
+```sh
+REACT_APP_OPENWEATHERAPP=your-keys-go-here
+```
+
+4. Run the app.
 
 ```sh
 yarn start || npm start
 ```
 
-4. Run the tests.
+5. Run the tests.
 
 ```sh
 yarn test || npm run test
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ---
 
