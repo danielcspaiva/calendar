@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import {
   Container,
   ContentText,
@@ -9,24 +9,21 @@ import {
   Rain,
   Sunny,
   Snow,
-  Storm,
   PartlySunny,
   Clock,
   Title,
   CollapsedContentText,
+  Delete,
+  Edit,
+  OptionsContainer,
 } from "./styles";
 import { EventProps } from "../../../../../types";
 import axios from "axios";
 import differenceInMinutes from "date-fns/differenceInMinutes";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  setEvent,
-  editEvent,
-  deleteEvent,
-  setShowEditEvent,
-} from "../../../../../redux/actions";
+import { useDispatch } from "react-redux";
+import { deleteEvent, setShowEditEvent } from "../../../../../redux/actions";
 
-interface Event {
+interface IEvent {
   event: EventProps;
   detail: boolean;
 }
@@ -39,20 +36,16 @@ interface ForecastProps {
   temp: number;
 }
 
-const Event: React.FC<Event> = ({ event, detail }: Event) => {
+const Event: React.FC<IEvent> = ({ event, detail }: IEvent) => {
   const { city, color, date, name, time } = event;
   const dispatch = useDispatch();
 
   const [forecast, setForecast] = useState<ForecastProps | undefined>(
     undefined
   );
-  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${process.env.REACT_APP_OPENWEATHERAPP}`;
 
-  useEffect(() => {
-    getWeatherData();
-  }, []);
-
-  const getWeatherData = async () => {
+  const getWeatherData = useCallback(async () => {
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${process.env.REACT_APP_OPENWEATHERAPP}`;
     const { data } = await axios.get(url);
     const dateFromApp = new Date(date + " " + time);
     let foreCast = data.list.filter(
@@ -67,7 +60,11 @@ const Event: React.FC<Event> = ({ event, detail }: Event) => {
       };
       setForecast(forecastToSet);
     }
-  };
+  }, [city, date, time]);
+
+  useEffect(() => {
+    getWeatherData();
+  }, [getWeatherData]);
 
   const renderWeather = () => {
     switch (forecast?.main) {
@@ -91,7 +88,7 @@ const Event: React.FC<Event> = ({ event, detail }: Event) => {
 
   const handleDelete = () => {
     dispatch(deleteEvent(event));
-  }
+  };
 
   return (
     <Container color={color} detail={detail}>
@@ -117,12 +114,22 @@ const Event: React.FC<Event> = ({ event, detail }: Event) => {
             {renderWeather()}
           </WeatherHeader>
           <p>{forecast.description}</p>
+          <OptionsContainer>
+            <Edit onClick={() => handleEdit()}>edit</Edit>
+            <Delete onClick={() => handleDelete()}>delete</Delete>
+          </OptionsContainer>
         </WeatherContainer>
       ) : (
-        detail && <ContentText>No forecast data</ContentText>
+        detail && (
+          <WeatherContainer>
+            <ContentText>No forecast data</ContentText>
+            <OptionsContainer>
+              <Edit onClick={() => handleEdit()}>edit</Edit>
+              <Delete onClick={() => handleDelete()}>delete</Delete>
+            </OptionsContainer>
+          </WeatherContainer>
+        )
       )}
-      {/* {detail && <p onClick={() => handleEdit()}>edit</p>}
-      {detail && <p onClick={() => handleDelete()}>delete</p>} */}
     </Container>
   );
 };

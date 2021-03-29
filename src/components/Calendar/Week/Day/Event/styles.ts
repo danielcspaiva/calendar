@@ -9,6 +9,8 @@ import {
   TiWeatherPartlySunny,
 } from "react-icons/ti";
 
+import { MdDelete, MdEdit } from "react-icons/md";
+
 import { FiClock } from "react-icons/fi";
 
 interface ContainerProps {
@@ -22,7 +24,7 @@ export const Container = styled.div<ContainerProps>`
   font-size: ${({ detail }) => (detail ? "1.7vh" : "1.1vh")};
   font-weight: bold;
   width: 100%;
-  border-radius: 3px;
+  border-radius: ${({ detail }) => (detail ? "10px" : "3px")};
   margin-bottom: 3px;
   padding: ${({ detail }) => (detail ? "10px" : "0px")};
   display: flex;
@@ -107,6 +109,18 @@ export const PartlySunny = styled(TiWeatherPartlySunny)`
   width: 2.5vh;
 `;
 
+export const Delete = styled(MdDelete)`
+  color: ${({ theme }) => theme.colors.darkText};
+  height: 2.5vh;
+  width: 2.5vh;
+`;
+
+export const Edit = styled(MdEdit)`
+  color: ${({ theme }) => theme.colors.darkText};
+  height: 2.5vh;
+  width: 2.5vh;
+`;
+
 export const Clock = styled(FiClock)`
   color: ${({ theme }) => theme.colors.darkText};
   margin-right: 5px;
@@ -116,4 +130,14 @@ export const Clock = styled(FiClock)`
 
 export const Title = styled.p`
   font-size: 2vh;
+`;
+
+export const OptionsContainer = styled.div`
+  margin-top: 5px;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  > * {
+    margin-left: 10px;
+  }
 `;

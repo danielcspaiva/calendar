@@ -3,8 +3,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { ApplicationState } from "../../../../redux/types";
 import { setshowDayDetail } from "./../../../../redux/actions";
 import { EventProps } from "../../../../types";
+import { deleteAll } from "../../../../redux/actions";
 
-import { Container, DayOfMonth, Close, DetailHeader } from "./styles";
+import {
+  Container,
+  DayOfMonth,
+  Close,
+  DetailHeader,
+  DeleteAll,
+  EventsContainer,
+} from "./styles";
 import { format } from "date-fns";
 import Event from "./Event";
 interface DayProps {
@@ -19,11 +27,15 @@ const Day: React.FC<DayProps> = ({ day, detail }: DayProps) => {
   const events = useSelector(
     (state: any) => state.events[format(day, "y-MM-dd")]
   )?.sort((a: EventProps, b: EventProps) => a.time.localeCompare(b.time));
-  
+
   const { showDayDetail } = useSelector((state: ApplicationState) => state);
   const dispatch = useDispatch();
 
   const isToday = format(day, "y-MM-dd") === format(new Date(), "y-MM-dd");
+
+  const handleDelete = () => {
+    dispatch(deleteAll(events[0].date));
+  };
 
   return (
     <Container
@@ -40,10 +52,15 @@ const Day: React.FC<DayProps> = ({ day, detail }: DayProps) => {
           <Close onClick={() => dispatch(setshowDayDetail(false, day))} />
         )}
       </DetailHeader>
-      {events &&
-        events.map((event: EventProps, idx: number) => (
-          <Event key={idx} event={event} detail={detail} />
-        ))}
+      <EventsContainer>
+        {events &&
+          events.map((event: EventProps, idx: number) => (
+            <Event key={idx} event={event} detail={detail} />
+          ))}
+      </EventsContainer>
+      {detail && events && (
+        <DeleteAll onClick={() => handleDelete()}>Delete All</DeleteAll>
+      )}
     </Container>
   );
 };

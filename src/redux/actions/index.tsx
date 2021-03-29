@@ -9,14 +9,14 @@ export const toggleTheme = () => {
 export const setEvent = (event: EventProps) => {
   return {
     type: "SET_EVENT",
-    data: { ...event, id: Math.random() * 10000 },
+    data: event,
   };
 };
 
-export const editEvent = (event: EventProps) => {
+export const editEvent = (event: EventProps, oldEvent: EventProps) => {
   return {
     type: "EDIT_EVENT",
-    data: event,
+    data: { event, oldEvent },
   };
 };
 
@@ -24,6 +24,13 @@ export const deleteEvent = (event: EventProps) => {
   return {
     type: "DELETE_EVENT",
     data: event,
+  };
+};
+
+export const deleteAll = (day: Date) => {
+  return {
+    type: "DELETE_ALL_EVENTS",
+    data: day,
   };
 };
 

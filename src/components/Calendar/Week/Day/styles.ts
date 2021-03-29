@@ -34,6 +34,9 @@ export const Container = styled.div<ContainerProps>`
       : shade(0.6, theme.colors.background)};
   border-radius: ${({ detail }) => (detail ? 15 : 5)}px;
   overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &:hover {
     background: ${({ theme, isToday, detail }) =>
@@ -45,6 +48,14 @@ export const Container = styled.div<ContainerProps>`
           : lighten(0.1, theme.colors.background)
         : null};
   }
+`;
+
+export const EventsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  overflow: scroll;
 `;
 
 export const DayOfMonth = styled.p<DayOfMonthProps>`
@@ -60,7 +71,7 @@ export const DayOfMonth = styled.p<DayOfMonthProps>`
 `;
 
 export const Close = styled(VscClose).attrs(({ theme }) => ({
-  size: "40px",
+  size: "35px",
 }))`
   color: ${({ theme }) => theme.colors.primaryText};
 `;
@@ -69,4 +80,16 @@ export const DetailHeader = styled.div<DetailHeaderProps>`
   display: flex;
   justify-content: space-between;
   margin-bottom: ${({ detail }) => (detail ? 20 : 0)}px;
+`;
+
+export const DeleteAll = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  height: 40px;
+  border-radius: 10px;
+  color: ${({ theme }) => theme.colors.darkText};
+  background: #ff3333;
 `;

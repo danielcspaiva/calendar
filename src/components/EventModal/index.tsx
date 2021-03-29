@@ -1,4 +1,4 @@
-import React, { SetStateAction, useState, Dispatch } from "react";
+import React, { useState } from "react";
 import {
   Container,
   Color,
@@ -12,7 +12,7 @@ import {
   Close,
   CheckMark,
 } from "./styles";
-import { setEvent, editEvent, deleteEvent } from "../../redux/actions";
+import { setEvent, editEvent } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowCreateEvent, setShowEditEvent } from "../../redux/actions";
 import { EventProps } from "../../types";
@@ -24,21 +24,15 @@ interface EventModalProps {
 
 const EventModal: React.FC<EventModalProps> = ({ type }) => {
   const { eventToEdit } = useSelector((state: ApplicationState) => state);
-  const [eventName, setEventName] = useState(
-    type === "create" ? "" : eventToEdit.name
-  );
+  const { city, color, date, name, time, id } = eventToEdit;
+  const [eventName, setEventName] = useState(type === "create" ? "" : name);
   const [eventColor, setEventColor] = useState<EventProps["color"]>(
-    type === "create" ? "cyan" : eventToEdit.color
+    type === "create" ? "cyan" : color
   );
-  const [eventCity, setEventCity] = useState(
-    type === "create" ? "" : eventToEdit.city
-  );
-  const [eventDate, setEventDate] = useState(
-    type === "create" ? "" : eventToEdit.date
-  );
-  const [eventTime, setEventTime] = useState(
-    type === "create" ? "" : eventToEdit.time
-  );
+  const [eventCity, setEventCity] = useState(type === "create" ? "" : city);
+  const [eventDate, setEventDate] = useState(type === "create" ? "" : date);
+  const [eventTime, setEventTime] = useState(type === "create" ? "" : time);
+  const eventId = type === "create" ? Math.random().toString() : id;
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
@@ -48,10 +42,13 @@ const EventModal: React.FC<EventModalProps> = ({ type }) => {
       color: eventColor,
       date: eventDate,
       time: eventTime,
+      id: eventId,
     };
 
     console.log("handleSubmit", type);
-    type === "create" ? dispatch(setEvent(event)) : dispatch(editEvent(event));
+    type === "create"
+      ? dispatch(setEvent(event))
+      : dispatch(editEvent(event, eventToEdit));
     handleClose();
   };
 
