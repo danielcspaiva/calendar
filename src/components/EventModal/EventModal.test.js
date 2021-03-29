@@ -4,12 +4,8 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import EventModal from "../EventModal";
 import { Provider } from "react-redux";
-import { configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
 import { ThemeProvider } from "styled-components";
 import dark from "../../styles/themes/dark";
-
-configure({ adapter: new Adapter() });
 
 const mockStore = configureMockStore([thunk]);
 describe("Create Event", () => {
