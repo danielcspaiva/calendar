@@ -5,7 +5,7 @@ import light from "./styles/themes/light";
 import GlobalStyle from "./styles/global";
 import { useSelector } from "react-redux";
 import Home from "./Home";
-import { ApplicationState } from "./redux/types";
+import { ApplicationState } from "./types";
 
 const App: React.FC = () => {
   const { theme } = useSelector((state: ApplicationState) => state);

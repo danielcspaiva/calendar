@@ -1,6 +1,6 @@
 import initialState from "../initialState";
 import { combineReducers } from "redux";
-import { ApplicationState } from "../types";
+import { ApplicationState } from "../../types";
 import { EventProps } from "../../types";
 
 const themeReducer = (

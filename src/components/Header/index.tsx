@@ -11,7 +11,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../redux/actions";
 import { format } from "date-fns";
-import { ApplicationState } from "../../redux/types";
+import { ApplicationState } from "../../types";
 // import { BsCalendar } from "react-icons/bs";
 
 const Header: React.FC = () => {

@@ -16,7 +16,7 @@ import { setEvent, editEvent } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowCreateEvent, setShowEditEvent } from "../../redux/actions";
 import { EventProps } from "../../types";
-import { ApplicationState } from "../../redux/types";
+import { ApplicationState } from "../../types";
 
 interface EventModalProps {
   type: "create" | "edit";

@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ApplicationState } from "../../../../redux/types";
+import { ApplicationState } from "../../../../types";
 import { setshowDayDetail } from "./../../../../redux/actions";
 import { EventProps } from "../../../../types";
 import { deleteAll } from "../../../../redux/actions";

@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "./styles";
 import { useSelector } from "react-redux";
-import { ApplicationState } from "../../redux/types";
+import { ApplicationState } from "../../types";
 import Day from "../Calendar/Week/Day";
 
 const DayDetails: React.FC = () => {
