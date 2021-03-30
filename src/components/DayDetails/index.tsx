@@ -8,7 +8,7 @@ const DayDetails: React.FC = () => {
   const { dayInDetail } = useSelector((state: ApplicationState) => state);
 
   return (
-    <Container>
+    <Container className="animate__animated animate__fadeIn">
       <Day day={dayInDetail} detail={true} />
     </Container>
   );

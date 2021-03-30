@@ -20,7 +20,7 @@ const eventsReducer = (state: any = initialState.events, action: any) => {
     case "SET_EVENT":
       if (state[action.data.date]) {
         state[action.data.date].push(action.data);
-        return state;
+        return { ...state };
       } else {
         return { ...state, [action.data.date]: [action.data] };
       }
@@ -46,17 +46,17 @@ const eventsReducer = (state: any = initialState.events, action: any) => {
           state[action.data.event.date].push(action.data.event);
         }
       }
-      return state;
+      return { ...state };
     case "DELETE_EVENT":
       let oldEvents = state[action.data.date];
       const index = oldEvents.indexOf(action.data);
       oldEvents.splice(index, 1);
-      return state;
+      return { ...state };
     case "DELETE_ALL_EVENTS":
       state[action.data] = [];
-      return state;
+      return { ...state };
     default:
-      return state;
+      return { ...state };
   }
 };
 
@@ -120,6 +120,17 @@ const eventToEditModalReducer = (
   }
 };
 
+const startDayReducer = (state: any = initialState.startDay, action: any) => {
+  switch (action.type) {
+    case "SET_START_DATE":
+      // console.log(typeof action.data, action.data);
+      console.log()
+      return new Date (action.data.toString());
+    default:
+      return state;
+  }
+};
+
 const allReducers = combineReducers({
   theme: themeReducer,
   events: eventsReducer,
@@ -128,6 +139,7 @@ const allReducers = combineReducers({
   dayInDetail: dayInDetailModalReducer,
   showEditEvent: editEventlModalReducer,
   eventToEdit: eventToEditModalReducer,
+  startDay: startDayReducer,
 });
 
 export default allReducers;

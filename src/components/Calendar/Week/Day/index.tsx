@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ApplicationState } from "../../../../types";
 import { setshowDayDetail } from "./../../../../redux/actions";
@@ -21,7 +21,8 @@ interface DayProps {
 }
 
 const Day: React.FC<DayProps> = ({ day, detail }: DayProps) => {
-  const currentMonth = useMemo(() => format(new Date(), "M"), []);
+  const { startDay } = useSelector((state: ApplicationState) => state);
+  const currentMonth = format(startDay, "M");
   const monthOfDay = format(day, "M");
   const current = currentMonth === monthOfDay;
   const events = useSelector(

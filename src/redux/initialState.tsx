@@ -1,5 +1,6 @@
 const state = {
   theme: "dark",
+  startDay: new Date(),
   events: {
     "2021-03-12": [
       {

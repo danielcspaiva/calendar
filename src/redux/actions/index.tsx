@@ -54,3 +54,10 @@ export const setshowDayDetail = (show: boolean, day: Date = new Date()) => {
     data: { show, day },
   };
 };
+
+export const setStartDay = (day: Date) => {
+  return {
+    type: "SET_START_DATE",
+    data: day,
+  };
+};

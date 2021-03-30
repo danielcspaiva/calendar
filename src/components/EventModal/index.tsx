@@ -24,13 +24,21 @@ interface EventModalProps {
 
 const EventModal: React.FC<EventModalProps> = ({ type }) => {
   const { eventToEdit } = useSelector((state: ApplicationState) => state);
-  const [eventName, setEventName] = useState(type === "create" ? "" : eventToEdit.name);
+  const [eventName, setEventName] = useState(
+    type === "create" ? "" : eventToEdit.name
+  );
   const [eventColor, setEventColor] = useState<EventProps["color"]>(
     type === "create" ? "cyan" : eventToEdit.color
   );
-  const [eventCity, setEventCity] = useState(type === "create" ? "" : eventToEdit.city);
-  const [eventDate, setEventDate] = useState(type === "create" ? "" : eventToEdit.date);
-  const [eventTime, setEventTime] = useState(type === "create" ? "" : eventToEdit.time);
+  const [eventCity, setEventCity] = useState(
+    type === "create" ? "" : eventToEdit.city
+  );
+  const [eventDate, setEventDate] = useState(
+    type === "create" ? "" : eventToEdit.date
+  );
+  const [eventTime, setEventTime] = useState(
+    type === "create" ? "" : eventToEdit.time
+  );
   const eventId = type === "create" ? Math.random().toString() : eventToEdit.id;
   const dispatch = useDispatch();
 
@@ -58,7 +66,10 @@ const EventModal: React.FC<EventModalProps> = ({ type }) => {
   };
 
   return (
-    <Container data-testid={"modal-container"}>
+    <Container
+      className="animate__animated animate__fadeInRight"
+      data-testid={"modal-container"}
+    >
       <Close onClick={() => handleClose()} data-testid={"close-button"} />
       <CreateEventForm data-testid={"form-container"}>
         <Title data-testid={"form-title"}>
@@ -142,7 +153,10 @@ const EventModal: React.FC<EventModalProps> = ({ type }) => {
             data-testid={"time-input"}
           ></AddEventInput>
         </DateContainer>
-        <SubmitButton onClick={() => handleSubmit()} data-testid={"submit-button"}>
+        <SubmitButton
+          onClick={() => handleSubmit()}
+          data-testid={"submit-button"}
+        >
           {type === "create" ? "Create" : "Edit"}
         </SubmitButton>
       </CreateEventForm>

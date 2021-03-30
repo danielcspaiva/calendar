@@ -60,7 +60,7 @@ export const EventsContainer = styled.div<EventsContainerProps>`
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
-  overflow: ${({ detail }) => detail && 'scroll'};
+  overflow-y: ${({ detail }) => detail && 'scroll'};
 `;
 
 export const DayOfMonth = styled.p<DayOfMonthProps>`

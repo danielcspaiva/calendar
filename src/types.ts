@@ -15,4 +15,5 @@ export interface ApplicationState {
   dayInDetail: Date;
   showEditEvent: boolean;
   eventToEdit: EventProps;
+  startDay: Date;
 }

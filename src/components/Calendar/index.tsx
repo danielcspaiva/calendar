@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Container, AddEventButton, AddIcon } from "./styles";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowCreateEvent, setshowDayDetail } from "../../redux/actions";
@@ -12,13 +12,16 @@ import DayDetails from "../DayDetails";
 
 const Calendar: React.FC = () => {
   const [calendar, setCalendar] = useState([[new Date()]]);
-  const { showCreateEvent, showDayDetail, showEditEvent } = useSelector(
-    (state: ApplicationState) => state
-  );
+  const {
+    showCreateEvent,
+    showDayDetail,
+    showEditEvent,
+    startDay,
+  } = useSelector((state: ApplicationState) => state);
 
   const dispatch = useDispatch();
 
-  const generateArray = (startDay = new Date()) => {
+  const generateArray = useCallback(() => {
     const calendarStart = startOfWeek(startOfMonth(startDay));
     let calendarArray = [];
     for (let i = 0; i < 5; i++) {
@@ -27,7 +30,7 @@ const Calendar: React.FC = () => {
       );
     }
     setCalendar(calendarArray);
-  };
+  }, [startDay]);
 
   const handleClick = () => {
     dispatch(setshowDayDetail(false));
@@ -36,7 +39,7 @@ const Calendar: React.FC = () => {
 
   useEffect(() => {
     generateArray();
-  }, []);
+  }, [generateArray]);
 
   return (
     <Container>
