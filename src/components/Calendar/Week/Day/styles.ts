@@ -58,7 +58,7 @@ export const EventsContainer = styled.div<EventsContainerProps>`
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
-  overflow-y: ${({ detail }) => detail && "scroll"};
+  overflow-y: scroll;
 `;
 
 export const DayOfMonth = styled.p<DayOfMonthProps>`
@@ -97,6 +97,7 @@ export const DeleteAll = styled.div`
   color: ${({ theme }) => theme.colors.darkText};
   background: ${({ theme }) => theme.colors.red};
   cursor: pointer;
+  margin-top: 15px;
 
   &:hover {
     background: ${({ theme }) => shade(0.1, theme.colors.red)};
