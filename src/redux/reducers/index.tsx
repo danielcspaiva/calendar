@@ -64,7 +64,7 @@ const eventsReducer = (
       oldEvents.splice(index, 1);
       return { ...state };
     case "DELETE_ALL_EVENTS":
-      state[action.day.toString()] = [];
+      state[action.day] = [];
       return { ...state };
     default:
       return { ...state };

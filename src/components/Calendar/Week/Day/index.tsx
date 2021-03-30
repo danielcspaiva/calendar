@@ -16,6 +16,7 @@ import {
   DeleteAll,
   EventsContainer,
 } from "./styles";
+
 interface DayProps {
   day: Date;
   detail: boolean;
@@ -28,7 +29,7 @@ const Day: React.FC<DayProps> = ({ day, detail }: DayProps) => {
   const current = currentMonth === monthOfDay;
 
   const events = useSelector(
-    (state: any) => state.events[format(day, "y-MM-dd")]
+    (state: ApplicationState) => state.events[format(day, "y-MM-dd")]
   )?.sort((a: EventProps, b: EventProps) => a.time.localeCompare(b.time));
 
   const { showDayDetail } = useSelector((state: ApplicationState) => state);

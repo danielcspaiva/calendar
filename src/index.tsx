@@ -5,11 +5,7 @@ import { createStore } from "redux";
 import allReducers from "./redux/reducers";
 import { Provider } from "react-redux";
 
-const appStore = createStore(
-  allReducers,
-  (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-    (window as any).__REDUX_DEVTOOLS_EXTENSION__()
-);
+const appStore = createStore(allReducers);
 
 ReactDOM.render(
   <React.StrictMode>

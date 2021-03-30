@@ -8,7 +8,6 @@ import {
   TiWeatherStormy,
   TiWeatherPartlySunny,
 } from "react-icons/ti";
-
 import { MdDelete, MdEdit } from "react-icons/md";
 import { FiClock } from "react-icons/fi";
 interface ContainerProps {

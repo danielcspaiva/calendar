@@ -23,6 +23,7 @@ import {
   Edit,
   OptionsContainer,
 } from "./styles";
+
 interface IEvent {
   event: EventProps;
   detail: boolean;

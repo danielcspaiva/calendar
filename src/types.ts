@@ -34,7 +34,7 @@ export interface EventReducerAction {
     event: EventProps;
     oldEvent: EventProps;
   };
-  day: Date;
+  day: string;
 }
 
 export interface CreateEventModalAction {

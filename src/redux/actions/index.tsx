@@ -27,7 +27,7 @@ export const deleteEvent = (event: EventProps) => {
   };
 };
 
-export const deleteAll = (day: Date) => {
+export const deleteAll = (day: string) => {
   return {
     type: "DELETE_ALL_EVENTS",
     day: day,
