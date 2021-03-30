@@ -241,30 +241,6 @@ const state: ApplicationState = {
         date: "2021-03-31",
         time: "02:38",
       },
-      {
-        id: "3OkpTQhYga",
-        name: "Study",
-        city: "London",
-        color: "salmon",
-        date: "2021-03-31",
-        time: "03:37",
-      },
-      {
-        id: "7DjuG6wqKp",
-        name: "Boat Party",
-        city: "New York",
-        color: "cyan",
-        date: "2021-03-31",
-        time: "02:38",
-      },
-      {
-        id: "3OkpTQhYga",
-        name: "Study",
-        city: "London",
-        color: "salmon",
-        date: "2021-03-31",
-        time: "03:37",
-      },
     ],
     "2021-03-30": [
       {
