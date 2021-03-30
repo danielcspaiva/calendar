@@ -1,11 +1,19 @@
 import initialState from "../initialState";
 import { combineReducers } from "redux";
-import { ApplicationState } from "../../types";
+import {
+  ApplicationState,
+  ThemeReducerAction,
+  EventReducerAction,
+  CreateEventModalAction,
+  EventDetailModalAction,
+  EditEventlModalAction,
+  startDayAction
+} from "../../types";
 import { EventProps } from "../../types";
 
 const themeReducer = (
   state: ApplicationState["theme"] = initialState.theme,
-  action: any
+  action: ThemeReducerAction
 ) => {
   switch (action.type) {
     case "TOGGLE_THEME":
@@ -15,7 +23,10 @@ const themeReducer = (
   }
 };
 
-const eventsReducer = (state: any = initialState.events, action: any) => {
+const eventsReducer = (
+  state: ApplicationState["events"] = initialState.events,
+  action: EventReducerAction
+) => {
   switch (action.type) {
     case "SET_EVENT":
       if (state[action.data.date]) {
@@ -25,25 +36,25 @@ const eventsReducer = (state: any = initialState.events, action: any) => {
         return { ...state, [action.data.date]: [action.data] };
       }
     case "EDIT_EVENT":
-      if (action.data.event.date === action.data.oldEvent.date) {
-        const day = state[action.data.event.date];
+      if (action.events.event.date === action.events.oldEvent.date) {
+        const day = state[action.events.event.date];
         const updatedDay = day.map((event: EventProps) => {
-          if (event.id === action.data.event.id) {
-            return action.data.event;
+          if (event.id === action.events.event.id) {
+            return action.events.event;
           } else {
             return event;
           }
         });
-        state[action.data.event.date] = updatedDay;
+        state[action.events.event.date] = updatedDay;
       } else {
-        const oldDay = state[action.data.oldEvent.date];
-        const index = oldDay.indexOf(action.data.oldEvent);
+        const oldDay = state[action.events.oldEvent.date];
+        const index = oldDay.indexOf(action.events.oldEvent);
         oldDay.splice(index, 1);
-        if (state[action.data.event.date]) {
-          state[action.data.event.date].push(action.data.event);
+        if (state[action.events.event.date]) {
+          state[action.events.event.date].push(action.events.event);
         } else {
-          state[action.data.event.date] = [];
-          state[action.data.event.date].push(action.data.event);
+          state[action.events.event.date] = [];
+          state[action.events.event.date].push(action.events.event);
         }
       }
       return { ...state };
@@ -53,7 +64,7 @@ const eventsReducer = (state: any = initialState.events, action: any) => {
       oldEvents.splice(index, 1);
       return { ...state };
     case "DELETE_ALL_EVENTS":
-      state[action.data] = [];
+      state[action.day.toString()] = [];
       return { ...state };
     default:
       return { ...state };
@@ -62,7 +73,7 @@ const eventsReducer = (state: any = initialState.events, action: any) => {
 
 const createEventModalReducer = (
   state: ApplicationState["showCreateEvent"] = initialState.showCreateEvent,
-  action: any
+  action: CreateEventModalAction
 ) => {
   switch (action.type) {
     case "TOGGLE_CREATE_EVENT_MODAL":
@@ -73,8 +84,8 @@ const createEventModalReducer = (
 };
 
 const eventDetailModalReducer = (
-  state: any = initialState.showDayDetail,
-  action: any
+  state: ApplicationState["showDayDetail"] = initialState.showDayDetail,
+  action: EventDetailModalAction
 ) => {
   switch (action.type) {
     case "TOGGLE_DAY_DETAIL_MODAL":
@@ -85,8 +96,8 @@ const eventDetailModalReducer = (
 };
 
 const dayInDetailModalReducer = (
-  state: any = initialState.showDayDetail,
-  action: any
+  state: ApplicationState["showDayDetail"] = initialState.showDayDetail,
+  action: EventDetailModalAction
 ) => {
   switch (action.type) {
     case "TOGGLE_DAY_DETAIL_MODAL":
@@ -97,8 +108,8 @@ const dayInDetailModalReducer = (
 };
 
 const editEventlModalReducer = (
-  state: any = initialState.showEditEvent,
-  action: any
+  state: ApplicationState["showEditEvent"] = initialState.showEditEvent,
+  action: EditEventlModalAction
 ) => {
   switch (action.type) {
     case "TOGGLE_EDIT_EVENT_MODAL":
@@ -109,8 +120,8 @@ const editEventlModalReducer = (
 };
 
 const eventToEditModalReducer = (
-  state: any = initialState.eventToEdit,
-  action: any
+  state: ApplicationState["eventToEdit"] = initialState.eventToEdit,
+  action: EditEventlModalAction
 ) => {
   switch (action.type) {
     case "TOGGLE_EDIT_EVENT_MODAL":
@@ -120,7 +131,10 @@ const eventToEditModalReducer = (
   }
 };
 
-const startDayReducer = (state: any = initialState.startDay, action: any) => {
+const startDayReducer = (
+  state: ApplicationState["startDay"] = initialState.startDay,
+  action: startDayAction
+) => {
   switch (action.type) {
     case "SET_START_DATE":
       return new Date(action.data.toString());

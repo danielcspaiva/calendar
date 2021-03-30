@@ -1,4 +1,6 @@
-const state = {
+import { ApplicationState } from "../types";
+
+const state: ApplicationState = {
   theme: "dark",
   startDay: new Date(),
   events: {
@@ -387,9 +389,16 @@ const state = {
   },
   showCreateEvent: false,
   showDayDetail: false,
-  dayInDetail: {},
+  dayInDetail: new Date(),
   showEditEvent: false,
-  eventToEdit: {},
+  eventToEdit: {
+    id: "",
+    name: "",
+    city: "",
+    color: "cyan",
+    date: "",
+    time: "00:00",
+  },
 };
 
 export default state;

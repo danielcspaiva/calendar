@@ -16,7 +16,7 @@ export const setEvent = (event: EventProps) => {
 export const editEvent = (event: EventProps, oldEvent: EventProps) => {
   return {
     type: "EDIT_EVENT",
-    data: { event, oldEvent },
+    events: { event, oldEvent },
   };
 };
 
@@ -30,7 +30,7 @@ export const deleteEvent = (event: EventProps) => {
 export const deleteAll = (day: Date) => {
   return {
     type: "DELETE_ALL_EVENTS",
-    data: day,
+    day: day,
   };
 };
 
