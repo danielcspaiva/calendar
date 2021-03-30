@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { Container, AddEventButton, AddIcon } from "./styles";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowCreateEvent, setshowDayDetail } from "../../redux/actions";
 import { startOfMonth, startOfWeek, addDays } from "date-fns";
@@ -9,6 +8,8 @@ import Week from "./Week";
 import WeekDays from "./WeekDays";
 import EventModal from "../EventModal";
 import DayDetails from "../DayDetails";
+
+import { Container, AddEventButton, AddIcon } from "./styles";
 
 const Calendar: React.FC = () => {
   const [calendar, setCalendar] = useState([[new Date()]]);

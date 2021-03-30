@@ -1,4 +1,10 @@
 import React, { useEffect, useState, useCallback } from "react";
+import { EventProps } from "../../../../../types";
+import axios from "axios";
+import differenceInMinutes from "date-fns/differenceInMinutes";
+import { useDispatch } from "react-redux";
+import { deleteEvent, setShowEditEvent } from "../../../../../redux/actions";
+
 import {
   Container,
   ContentText,
@@ -17,12 +23,6 @@ import {
   Edit,
   OptionsContainer,
 } from "./styles";
-import { EventProps } from "../../../../../types";
-import axios from "axios";
-import differenceInMinutes from "date-fns/differenceInMinutes";
-import { useDispatch } from "react-redux";
-import { deleteEvent, setShowEditEvent } from "../../../../../redux/actions";
-
 interface IEvent {
   event: EventProps;
   detail: boolean;

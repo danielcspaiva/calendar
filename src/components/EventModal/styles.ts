@@ -18,7 +18,6 @@ export const Container = styled.div`
   justify-content: space-around;
   box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.45);
 `;
-
 interface ColorProps {
   color: "cyan" | "salmon" | "pink" | "green" | "yellow";
   selected: boolean;

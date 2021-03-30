@@ -1,7 +1,6 @@
 import React from "react";
 import { WeekContainer, DayOfWeek } from "./styles";
 import { format } from "date-fns";
-
 interface WeekProps {
   weekArray: Date[];
 }

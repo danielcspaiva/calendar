@@ -1,4 +1,9 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme, setStartDay } from "../../redux/actions";
+import { format } from "date-fns";
+import { ApplicationState } from "../../types";
+
 import {
   Container,
   Month,
@@ -8,10 +13,6 @@ import {
   Moon,
   Sun,
 } from "./styles";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleTheme, setStartDay } from "../../redux/actions";
-import { format } from "date-fns";
-import { ApplicationState } from "../../types";
 
 const Header: React.FC = () => {
   const { theme, startDay } = useSelector((state: ApplicationState) => state);

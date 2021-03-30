@@ -2,7 +2,6 @@ import React from "react";
 import Day from "./Day";
 
 import { WeekContainer } from "./styles";
-
 interface WeekProps {
   weekArray: Date[];
 }
@@ -10,7 +9,8 @@ interface WeekProps {
 const Week: React.FC<WeekProps> = ({ weekArray }: WeekProps) => {
   return (
     <WeekContainer>
-      {weekArray && weekArray.map((day, idx) => <Day key={idx} day={day} detail={false}/>)}
+      {weekArray &&
+        weekArray.map((day, idx) => <Day key={idx} day={day} detail={false} />)}
     </WeekContainer>
   );
 };

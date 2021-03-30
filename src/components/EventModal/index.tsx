@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import { setEvent, editEvent } from "../../redux/actions";
+import { useSelector, useDispatch } from "react-redux";
+import { setShowCreateEvent, setShowEditEvent } from "../../redux/actions";
+import { EventProps } from "../../types";
+import { ApplicationState } from "../../types";
+
 import {
   Container,
   Color,
@@ -12,12 +18,6 @@ import {
   Close,
   CheckMark,
 } from "./styles";
-import { setEvent, editEvent } from "../../redux/actions";
-import { useSelector, useDispatch } from "react-redux";
-import { setShowCreateEvent, setShowEditEvent } from "../../redux/actions";
-import { EventProps } from "../../types";
-import { ApplicationState } from "../../types";
-
 interface EventModalProps {
   type: "create" | "edit";
 }
@@ -52,7 +52,6 @@ const EventModal: React.FC<EventModalProps> = ({ type }) => {
       id: eventId,
     };
 
-    console.log("handleSubmit", type);
     type === "create"
       ? dispatch(setEvent(event))
       : dispatch(editEvent(event, eventToEdit));

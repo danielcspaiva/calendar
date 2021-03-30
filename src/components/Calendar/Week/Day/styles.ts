@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { shade, lighten } from "polished";
 import { VscClose } from "react-icons/vsc";
-
 interface ContainerProps {
   current: boolean;
   isToday: boolean;
@@ -37,11 +36,11 @@ export const Container = styled.div<ContainerProps>`
       ? lighten(0.03, theme.colors.background)
       : shade(0.6, theme.colors.background)};
   border-radius: ${({ detail }) => (detail ? 15 : 5)}px;
-  overflow: ${({ detail }) => detail && 'scroll'};
+  overflow: ${({ detail }) => detail && "scroll"};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  cursor: ${({ detail }) => (detail ? null : 'pointer')};
+  cursor: ${({ detail }) => (detail ? null : "pointer")};
 
   &:hover {
     background: ${({ theme, isToday, detail }) =>
@@ -60,7 +59,7 @@ export const EventsContainer = styled.div<EventsContainerProps>`
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
-  overflow-y: ${({ detail }) => detail && 'scroll'};
+  overflow-y: ${({ detail }) => detail && "scroll"};
 `;
 
 export const DayOfMonth = styled.p<DayOfMonthProps>`

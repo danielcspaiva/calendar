@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { Container, FooterText } from "./styles";
 import { FiLinkedin, FiGithub } from "react-icons/fi";
 import { ThemeContext } from "styled-components";
+
+import { Container, FooterText } from "./styles";
 
 const Footer: React.FC = () => {
   const theme = useContext(ThemeContext);
@@ -15,7 +16,6 @@ const Footer: React.FC = () => {
       >
         <FiGithub size={20} color={theme.colors.lightText} />
       </a>
-      {"  "}
       <a
         href="https://www.linkedin.com/in/danielcspaiva/"
         target="_blank"

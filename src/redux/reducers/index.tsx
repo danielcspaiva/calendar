@@ -123,9 +123,7 @@ const eventToEditModalReducer = (
 const startDayReducer = (state: any = initialState.startDay, action: any) => {
   switch (action.type) {
     case "SET_START_DATE":
-      // console.log(typeof action.data, action.data);
-      console.log()
-      return new Date (action.data.toString());
+      return new Date(action.data.toString());
     default:
       return state;
   }
