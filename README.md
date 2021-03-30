@@ -21,6 +21,8 @@ This project a simple calendar view of the current month where you can add event
 ## Observations
 
 - The free tier of the OpenWeather API only provides a 5 day weather forecast, so the application will only be able to show weather forecast for the following 5 days.
+- This project is focused in the front-end only, therefore the content will not persist after you visit the app and you will be presented with mocked content.
+
 ### Built With:
 
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
