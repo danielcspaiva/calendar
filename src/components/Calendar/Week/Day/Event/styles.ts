@@ -23,7 +23,7 @@ export const Container = styled.div<ContainerProps>`
   font-weight: bold;
   width: 100%;
   border-radius: ${({ detail }) => (detail ? "10px" : "3px")};
-  margin-bottom: 3px;
+  margin-bottom: ${({ detail }) => (detail ? "15px" : "3px")};
   padding: ${({ detail }) => (detail ? "10px" : "0px")};
   display: flex;
   justify-content: space-between;

@@ -36,7 +36,6 @@ export const Container = styled.div<ContainerProps>`
       ? lighten(0.03, theme.colors.background)
       : shade(0.6, theme.colors.background)};
   border-radius: ${({ detail }) => (detail ? 15 : 5)}px;
-  overflow: ${({ detail }) => detail && "scroll"};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
