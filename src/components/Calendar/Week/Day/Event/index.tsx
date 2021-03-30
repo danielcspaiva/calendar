@@ -63,7 +63,7 @@ const Event: React.FC<IEvent> = ({ event, detail }: IEvent) => {
         setForecast(forecastToSet);
       }
     } catch (err) {
-      console.log("weather request error");
+      console.log("weather request error", err);
     }
   }, [city, date, time]);
 
