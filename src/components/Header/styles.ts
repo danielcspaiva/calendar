@@ -35,12 +35,14 @@ export const PreviousMonth = styled(BsFillCaretLeftFill).attrs(() => ({
   size: "20px",
 }))`
   color: ${({ theme }) => theme.colors.lightText};
+  cursor: pointer;
 `;
 
 export const NextMonth = styled(BsFillCaretRightFill).attrs(() => ({
   size: "20px",
 }))`
   color: ${({ theme }) => theme.colors.lightText};
+  cursor: pointer;
 `;
 
 export const Moon = styled(FiMoon).attrs(() => ({}))`

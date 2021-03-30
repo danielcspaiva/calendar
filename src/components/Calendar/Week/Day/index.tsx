@@ -60,7 +60,7 @@ const Day: React.FC<DayProps> = ({ day, detail }: DayProps) => {
             <Event key={idx} event={event} detail={detail} />
           ))}
       </EventsContainer>
-      {detail && events.length && (
+      {detail && !!events.length && (
         <DeleteAll onClick={() => handleDelete()}>Delete All</DeleteAll>
       )}
     </Container>
