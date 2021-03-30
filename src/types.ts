@@ -9,7 +9,7 @@ export interface EventProps {
 
 export interface ApplicationState {
   theme: string;
-  events: EventProps[];
+  events: { [key: string]: EventProps[] };
   showCreateEvent: boolean;
   showDayDetail: boolean;
   dayInDetail: Date;
