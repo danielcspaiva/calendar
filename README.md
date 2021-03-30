@@ -11,12 +11,13 @@ The project is deployed and can be
 
 ## Getting Started
 
-This project a simple calendar view of the current month where you can add events and reminders.
+This project a simple calendar view where you can add events and reminders.
 
 ## Instructions
 
 - On the main screen, click "+" to add a reminder.
 - Click on any day to see the events for that day, edit and delete events.
+- Click "<" or ">" to go to previous/next month.
 
 ## Observations
 
