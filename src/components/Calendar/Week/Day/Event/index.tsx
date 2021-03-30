@@ -63,8 +63,10 @@ const Event: React.FC<IEvent> = ({ event, detail }: IEvent) => {
   }, [city, date, time]);
 
   useEffect(() => {
-    getWeatherData();
-  }, [getWeatherData]);
+    if (detail) {
+      getWeatherData();
+    }
+  }, [getWeatherData, detail]);
 
   const renderWeather = () => {
     switch (forecast?.main) {
