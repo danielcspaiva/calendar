@@ -46,20 +46,24 @@ const Event: React.FC<IEvent> = ({ event, detail }: IEvent) => {
   );
 
   const getWeatherData = useCallback(async () => {
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${process.env.REACT_APP_OPENWEATHERAPP}`;
-    const { data } = await axios.get(url);
-    const dateFromApp = new Date(date + " " + time);
-    let foreCast = data.list.filter(
-      (elem: any) =>
-        differenceInMinutes(dateFromApp, new Date(elem.dt_txt)) > 0 &&
-        differenceInMinutes(dateFromApp, new Date(elem.dt_txt)) < 180
-    );
-    if (foreCast.length) {
-      let forecastToSet = {
-        ...foreCast[0].weather[0],
-        temp: foreCast[0].main.temp,
-      };
-      setForecast(forecastToSet);
+    try {
+      const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${process.env.REACT_APP_OPENWEATHERAPP}`;
+      const { data } = await axios.get(url);
+      const dateFromApp = new Date(date + " " + time);
+      let foreCast = data.list.filter(
+        (elem: any) =>
+          differenceInMinutes(dateFromApp, new Date(elem.dt_txt)) > 0 &&
+          differenceInMinutes(dateFromApp, new Date(elem.dt_txt)) < 180
+      );
+      if (foreCast.length) {
+        let forecastToSet = {
+          ...foreCast[0].weather[0],
+          temp: foreCast[0].main.temp,
+        };
+        setForecast(forecastToSet);
+      }
+    } catch (err) {
+      console.log("weather request error");
     }
   }, [city, date, time]);
 
